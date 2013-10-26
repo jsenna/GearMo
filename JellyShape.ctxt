@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=w
+comment0.target=void\ addedToWorld(greenfoot.World)
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ updateImage()
+comment3.params=
+comment3.target=void\ processMovement()
+comment4.params=
+comment4.target=void\ processPhysics()
+comment5.params=value
+comment5.target=int\ round(double)
+comment5.text=d\r\n\ Faster\ than\ (int)Math.round(value)\r\n\ \r\n\ See\ http\://myscrambledmind.com/blog/?p\=43\r\n
+numComments=6
