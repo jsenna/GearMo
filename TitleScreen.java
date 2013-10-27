@@ -74,6 +74,7 @@ public class TitleScreen extends World
     }
     public void stopped(){
         music.stop();
+        soundPlay = 0;
         Greenfoot.playSound("yippee.mp3");
     }
 
