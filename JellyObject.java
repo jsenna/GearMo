@@ -20,17 +20,11 @@ public class JellyObject extends Actor
                            new Edge(new Vertex(485,250),new Vertex(600,250))};
     
     public void addedToWorld(World w) {
-        /*setImage(img);
-        
-        for(Vertex v : vertices) {
-            v.incX(getX());
-            v.incY(getY());
-        }
+        setImage(img);
         
         setLocation(TheWorld.WIDTH/2, TheWorld.HEIGHT/2);
         
         updateImage();
-        */
     }
     
     public void act() {
