@@ -29,8 +29,11 @@ public class TheWorld extends World {
     }
     private void prepare()
     {
+        
         Smokestack smokestack = new Smokestack();
         addObject(smokestack, 332, 300);
+        WorldBack1 worldback = new WorldBack1();
+        addObject(worldback,300,200);
         PressureSwitch pressureswitch = new PressureSwitch();
         addObject(pressureswitch, 541, 278);
         pressureswitch.setLocation(549, 269);
