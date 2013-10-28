@@ -31,15 +31,6 @@ public class GearMoWorld extends World
     {
         Smokestack smokestack = new Smokestack();
         addObject(smokestack, 332, 300);
-        Level1 level1 = new Level1();
-        addObject(level1, 303, 202);
-        level1.setLocation(301, 199);
-        level1.setLocation(299, 198);
-        level1.setLocation(300, 201);
-        level1.setLocation(299, 199);
-        level1.setLocation(300, 199);
-        level1.setLocation(300, 199);
-        level1.setLocation(300, 200);
         PressureSwitch pressureswitch = new PressureSwitch();
         addObject(pressureswitch, 541, 278);
         pressureswitch.setLocation(549, 269);

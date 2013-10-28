@@ -1,36 +1,34 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TitleButton here.
+ * Write a description of class HelpButton here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TitleButton extends Button
+public class HelpButton extends Button
 {
     /**
-     * Act - do whatever the TitleButton wants to do. This method is called whenever
+     * Act - do whatever the HelpButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
-    public int animate = 0;
     public int endX;
     public int endY;
-   
+    public int animate = 0;
     
     public void act() 
     {
         // Add your action code here.
         super.act();
-        if(animate == 0){
+               if(animate == 0){
            animate = 1;
            endX = getX();
            endY = getY();
-           setLocation(-50,getY());
+           setLocation(650,getY());
         }
-        if(animate == 1 && getX() < endX){
-           setLocation(getX() + 3,getY());
-           if(getX() >= endX ){
+        if(animate == 1 && getX() > endX){
+           setLocation(getX() - 3,getY());
+           if(getX() <= endX ){
             animate = 2;
             }
         }
@@ -38,13 +36,11 @@ public class TitleButton extends Button
             //Play sound here
             animate = 3;
         }
-        
         if(Greenfoot.mouseClicked(this)){
-            getWorld().stopped();
-            Greenfoot.setWorld(new TheWorld());
+            HelpBox hb = new HelpBox();
+           getWorld().addObject(hb,300,200);
+           //hb.setLocation(300,200);
            
-        }
+        }        
     }    
-    
-
 }
