@@ -14,6 +14,6 @@ public class Start extends Actor
      */
     public void act() 
     {
-       
+        ((TheWorld) getWorld()).engine=true;
     }    
 }

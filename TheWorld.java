@@ -27,8 +27,10 @@ public class TheWorld extends World {
                 break;
         }
         
-        setPaintOrder(JellyObject.class, JellyShape.class);  
-        
+        setPaintOrder(JellyObject.class, JellyShape.class);
+        setPaintOrder(CBall.class, JellyShape.class); 
+        setPaintOrder(CCBall.class, CBall.class);
+        setPaintOrder(Start.class, JellyShape.class);
         shapeCounter++;
     }
     private void prepare()
@@ -48,11 +50,13 @@ public class TheWorld extends World {
         TriRobot trirobot = new TriRobot();
         CBall cball= new CBall();
         CCBall ccball= new CCBall();
+        Start star= new Start();
         addObject(trirobot, 338, 80);
         trirobot.setLocation(339, 77);
         trirobot.setLocation(362, 77);
         addObject(cball,55,355);
         addObject(ccball,200,355);
+        addObject(star, 525 ,25);
     }
         public void act(){
        if(soundPlay == 0){

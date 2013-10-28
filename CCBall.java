@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class CCBall extends Actor
 {
     private int x=200 ,y=355;
-    JellyWheel jel = new JellyWheel(25);
     public boolean reset;
     private Boolean drag=false;
     MouseInfo mouse=Greenfoot.getMouseInfo();
@@ -31,6 +30,7 @@ public class CCBall extends Actor
         if (Greenfoot.mouseClicked(this)) 
         {
             drag=false;
+            JellyWheel jel = new JellyWheel(25);
             getWorld().addObject(jel,x,y);
             setLocation(x,y);
             reset=false;

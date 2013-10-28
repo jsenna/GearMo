@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class CBall extends Actor
 {
     private int x= 55,y=355;
+    public boolean reset;
     private Boolean drag=false;
-    JellyWheel jel = new JellyWheel(25);
     MouseInfo mouse=Greenfoot.getMouseInfo();
     /**
      * Act - do whatever the BallIcon wants to do. This method is called whenever
@@ -25,13 +25,23 @@ public class CBall extends Actor
         } 
         if (Greenfoot.mousePressed(this)){
             drag=true;
+            reset=true;
         }
         if (Greenfoot.mouseClicked(this)) 
         {
             drag=false;
-            getWorld().addObject(jel,x, y);
+            JellyWheel jel = new JellyWheel(25);
+            getWorld().addObject(jel,x,y);
+            setLocation(x,y);
+            reset=false;
+        }
+        if(reset==false)
+        {
+            setLocation(55,355);
+        }else
+        {
             setLocation(x,y);
         }
-        setLocation(x, y);
-    }    
+    } 
+    
 }
