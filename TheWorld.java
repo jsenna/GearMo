@@ -9,6 +9,7 @@ public class TheWorld extends World {
     public TheWorld() {
         super(WIDTH, HEIGHT, 1);
         prepare();
+        dragndrop();
         GreenfootImage img = new GreenfootImage(WIDTH, HEIGHT);
         img.setColor(Color.CYAN);
         img.fill();
@@ -27,10 +28,14 @@ public class TheWorld extends World {
         }
         shapeCounter++;
     }
+    private void dragndrop()
+    {
+    
+    }
     private void prepare()
     {
         Smokestack smokestack = new Smokestack();
-        addObject(smokestack, 332, 300);
+        addObject(smokestack, 400, 300);
         PressureSwitch pressureswitch = new PressureSwitch();
         addObject(pressureswitch, 541, 278);
         pressureswitch.setLocation(549, 269);
@@ -38,9 +43,13 @@ public class TheWorld extends World {
         pressureswitch.setLocation(537, 271);
 
         TriRobot trirobot = new TriRobot();
+        BallIcon cball= new BallIcon();
+        BallIcon ccball= new BallIcon();
         addObject(trirobot, 338, 80);
         trirobot.setLocation(339, 77);
         trirobot.setLocation(362, 77);
+        addObject(cball,55,355);
+        addObject(ccball,200,355);
     }
         public void act(){
        if(soundPlay == 0){
