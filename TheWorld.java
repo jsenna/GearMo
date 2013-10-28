@@ -5,11 +5,11 @@ public class TheWorld extends World {
     public static final int HEIGHT = 400;
     private static int shapeCounter = 0;
     public int soundPlay = 0;
+    public boolean engine=false;
     
     public TheWorld() {
         super(WIDTH, HEIGHT, 1);
         prepare();
-        dragndrop();
         GreenfootImage img = new GreenfootImage(WIDTH, HEIGHT);
         img.setColor(Color.CYAN);
         img.fill();
@@ -27,10 +27,6 @@ public class TheWorld extends World {
                 break;
         }
         shapeCounter++;
-    }
-    private void dragndrop()
-    {
-    
     }
     private void prepare()
     {
@@ -71,4 +67,6 @@ public class TheWorld extends World {
        soundPlay = 0;
       Greenfoot.setWorld(new TitleScreen()); //starts a new world          
   }
+  
+
 }

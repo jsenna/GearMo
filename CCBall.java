@@ -10,6 +10,7 @@ public class CCBall extends Actor
 {
     private int x=200 ,y=355;
     JellyWheel jel = new JellyWheel(25);
+    public boolean reset;
     private Boolean drag=false;
     MouseInfo mouse=Greenfoot.getMouseInfo();
     /**
@@ -18,19 +19,28 @@ public class CCBall extends Actor
      */
     public void act() 
     {
-        if (Greenfoot.mouseDragged(jel)) {
+        if (Greenfoot.mouseDragged(this)) {
             MouseInfo mouse=Greenfoot.getMouseInfo();
             x=mouse.getX();
             y=mouse.getY();
         } 
         if (Greenfoot.mousePressed(this)){
             drag=true;
+            reset=true;
         }
-        if (Greenfoot.mouseClicked(this)) {
-            getWorld().addObject(jel,250,250);
+        if (Greenfoot.mouseClicked(this)) 
+        {
             drag=false;
+            getWorld().addObject(jel,x,y);
+            setLocation(x,y);
+            reset=false;
+        }
+        if(reset==false)
+        {
+            setLocation(200,355);
+        }else
+        {
             setLocation(x,y);
         }
-        setLocation(x,y);
     }    
 }

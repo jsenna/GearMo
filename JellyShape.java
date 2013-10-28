@@ -5,6 +5,7 @@ public abstract class JellyShape extends Actor {
     private GreenfootImage img = new GreenfootImage(TheWorld.WIDTH, TheWorld.HEIGHT);
     protected Vertex[] vertices;
     protected Edge[] edges;
+    public boolean engine=false;
     
     public Edge world_edges[] = {new Edge(new Vertex(0,150),new Vertex(270,290)),
                            new Edge(new Vertex(270,290),new Vertex(420,290)),
@@ -25,11 +26,16 @@ public abstract class JellyShape extends Actor {
     }
     
     public void act() {
-        updateImage();
         
-        processMovement();
+        if(engine)
+        {
+            updateImage();
         
-        processPhysics();
+            processMovement();
+        
+            processPhysics();
+        }
+        
     }
     
     private void updateImage() {
@@ -165,5 +171,6 @@ public abstract class JellyShape extends Actor {
     private int round(double value) {
         return (int)(value + 0.5);
     }
+    
  
 }

@@ -10,6 +10,7 @@ public class CBall extends Actor
 {
     private int x= 55,y=355;
     private Boolean drag=false;
+    JellyWheel jel = new JellyWheel(25);
     MouseInfo mouse=Greenfoot.getMouseInfo();
     /**
      * Act - do whatever the BallIcon wants to do. This method is called whenever
@@ -22,11 +23,15 @@ public class CBall extends Actor
             x=mouse.getX();
             y=mouse.getY();
         } 
-        if (Greenfoot.mousePressed(this)) drag=true;
-        if (Greenfoot.mouseClicked(null)) {
+        if (Greenfoot.mousePressed(this)){
+            drag=true;
+        }
+        if (Greenfoot.mouseClicked(this)) 
+        {
             drag=false;
+            getWorld().addObject(jel,x, y);
             setLocation(x,y);
         }
-        setLocation(x,y);
+        setLocation(x, y);
     }    
 }
