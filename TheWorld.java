@@ -36,13 +36,10 @@ public class TheWorld extends World {
     {
         
         Smokestack smokestack = new Smokestack();
-<<<<<<< HEAD
         addObject(smokestack, 332, 300);
         WorldBack1 worldback = new WorldBack1();
         addObject(worldback,300,200);
-=======
         addObject(smokestack, 400, 300);
->>>>>>> ffe61bd036ea57f8bf521e19288dd1fd0e915aa7
         PressureSwitch pressureswitch = new PressureSwitch();
         addObject(pressureswitch, 541, 278);
         pressureswitch.setLocation(549, 269);
@@ -50,8 +47,8 @@ public class TheWorld extends World {
         pressureswitch.setLocation(537, 271);
 
         TriRobot trirobot = new TriRobot();
-        BallIcon cball= new BallIcon();
-        BallIcon ccball= new BallIcon();
+        CBall cball= new CBall();
+        CCBall ccball= new CCBall();
         addObject(trirobot, 338, 80);
         trirobot.setLocation(339, 77);
         trirobot.setLocation(362, 77);
