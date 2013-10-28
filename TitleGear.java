@@ -21,14 +21,32 @@ public class TitleGear extends Actor
     
     public int r = 0;
     TitleGear t;
+    public int animate = 0;
+    public int endX;
+    public int endY;
     
     public TitleGear(){
         
     }
     public void act() 
     { setRotation(r++);
-      
-       //getImage().drawString(title,11,128);
-       
+        if(getWorld().getClass().getName() == "TitleScreen"){
+                       if(animate == 0){
+           animate = 1;
+           endX = getX();
+           endY = getY();
+           setLocation(getX(),-100);
+        }
+        if(animate == 1 && getY() < endY){
+           setLocation(getX(),getY() + 6);
+           if(getY() >= endY ){
+            animate = 2;
+            }
+        }
+        if(animate == 2){
+            //Play sound here
+            animate = 3;
+        }
+    }
     }   
 }

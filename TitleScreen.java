@@ -53,8 +53,13 @@ public class TitleScreen extends World
         removeObject(helpbutton);
         removeObject(title);
         TitleGear titlegear = new TitleGear();
-        addObject(titlegear, 299, 206);
+        addObject(titlegear, 300, 200);
         titlegear.setLocation(303, 198);
+        gearmo gm= new gearmo();
+        addObject(gm, 300,200);
+        Title title2 = new Title();
+        addObject(title2, 252, 79);
+        title2.setLocation(346, 141);
         TitleButton titlebutton2 = new TitleButton();
         addObject(titlebutton2, 157, 293);
         HelpButton helpbutton2 = new HelpButton();
@@ -63,13 +68,11 @@ public class TitleScreen extends World
         titlebutton2.setLocation(149, 291);
         helpbutton2.setLocation(449, 291);
         titlegear.setLocation(300, 243);
-        titlegear.setLocation(297, 233);
-        Title title2 = new Title();
-        addObject(title2, 252, 79);
-        title2.setLocation(346, 141);
+        titlegear.setLocation(300, 200);
         
-        gearmo gm= new gearmo();
-        addObject(gm, 100,100);
+        
+        
+        
     }
     
     public void started(){

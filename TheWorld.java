@@ -47,7 +47,9 @@ public class TheWorld extends World {
 
         TriRobot trirobot = new TriRobot();
         CBall cball= new CBall();
+        
         CCBall ccball= new CCBall();
+        
         addObject(trirobot, 338, 80);
         trirobot.setLocation(339, 77);
         trirobot.setLocation(362, 77);
