@@ -14,6 +14,7 @@ public class Start extends Actor
      */
     public void act() 
     {
+        if(Greenfoot.mouseClicked(this))
         ((TheWorld) getWorld()).engine=true;
     }    
 }

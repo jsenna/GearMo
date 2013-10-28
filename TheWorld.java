@@ -27,10 +27,8 @@ public class TheWorld extends World {
                 break;
         }
         
-        setPaintOrder(JellyObject.class, JellyShape.class);
-        setPaintOrder(CBall.class, JellyShape.class); 
-        setPaintOrder(CCBall.class, CBall.class);
-        setPaintOrder(Start.class, JellyShape.class);
+        setPaintOrder(Start.class, CCBall.class, CBall.class, JellyObject.class, JellyShape.class);
+
         shapeCounter++;
     }
     private void prepare()
