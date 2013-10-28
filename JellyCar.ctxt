@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=_radius
+comment0.target=JellyCar(double)
+comment1.params=w
+comment1.target=void\ addedToWorld(greenfoot.World)
+numComments=2

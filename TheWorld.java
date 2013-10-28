@@ -26,6 +26,9 @@ public class TheWorld extends World {
                 addObject(new JellyTriangle(50), 100, 100);
                 break;
         }
+        
+        setPaintOrder(JellyObject.class, JellyShape.class);  
+        
         shapeCounter++;
     }
     private void dragndrop()

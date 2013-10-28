@@ -33,6 +33,7 @@ public abstract class JellyShape extends Actor {
     }
     
     private void updateImage() {
+
         // Clear the image.
         img.clear();
         
