@@ -67,6 +67,9 @@ public class TitleScreen extends World
         Title title2 = new Title();
         addObject(title2, 252, 79);
         title2.setLocation(346, 141);
+        
+        gearmo gm= new gearmo();
+        addObject(gm, 100,100);
     }
     
     public void started(){

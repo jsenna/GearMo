@@ -53,7 +53,7 @@ public abstract class JellyShape extends Actor {
             int y1 = e.getFirst().getRoundedY();
             int x2 = e.getSecond().getRoundedX();
             int y2 = e.getSecond().getRoundedY();
-            img.drawLine(x1, y1, x2, y2);
+            //img.drawLine(x1, y1, x2, y2);
         }
     }
     
@@ -80,13 +80,13 @@ public abstract class JellyShape extends Actor {
             
             if(shouldSpinRight)
             {
-                vertices[i].incHSpeed(1 * Math.sin(angle));
-                vertices[i].incVSpeed(1 * Math.cos(angle));
+                vertices[i].incVSpeed(-.25 * Math.sin(angle));
+                vertices[i].incHSpeed(-.25 * Math.cos(angle));
             }
             if(shouldSpinLeft)
             {
-                vertices[i].incVSpeed(1 * Math.sin(-angle));
-                vertices[i].incVSpeed(1 * Math.cos(-angle));
+                vertices[i].incVSpeed(.25 * Math.sin(angle));
+                vertices[i].incHSpeed(.25 * Math.cos(angle));
             }
         }
     
