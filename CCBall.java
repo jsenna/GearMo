@@ -12,12 +12,15 @@ public class CCBall extends Actor
     public boolean reset;
     private Boolean drag=false;
     MouseInfo mouse=Greenfoot.getMouseInfo();
+    public int rotation = 0;
     /**
      * Act - do whatever the BallIcon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
+        rotation--;
+        setRotation(rotation);
         if (Greenfoot.mouseDragged(this)) {
             MouseInfo mouse=Greenfoot.getMouseInfo();
             x=mouse.getX();
