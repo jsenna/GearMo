@@ -9,9 +9,7 @@ comment3.params=
 comment3.target=void\ processMovement()
 comment4.params=
 comment4.target=void\ processPhysics()
-comment5.params=v
-comment5.target=void\ checkWallCollisions(Vertex)
-comment6.params=value
-comment6.target=int\ round(double)
-comment6.text=d\r\n\ Faster\ than\ (int)Math.round(value)\r\n\ \r\n\ See\ http\://myscrambledmind.com/blog/?p\=43\r\n
-numComments=7
+comment5.params=value
+comment5.target=int\ round(double)
+comment5.text=d\r\n\ Faster\ than\ (int)Math.round(value)\r\n\ \r\n\ See\ http\://myscrambledmind.com/blog/?p\=43\r\n
+numComments=6
