@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 import java.awt.Color;
 
 /**
@@ -11,8 +12,8 @@ public class JellyObject extends Actor
 {
     private static final double ACCEL = 0.5;
     private GreenfootImage img = new GreenfootImage(TheWorld.WIDTH, TheWorld.HEIGHT);
-    protected JellyShape[] shapes;
-    protected Edge[] edges;
+    protected ArrayList<JellyShape> shapes= new ArrayList<JellyShape>();
+    protected ArrayList<Edge> edges= new ArrayList<Edge>();
     
     public Edge world_edges[] = {new Edge(new Vertex(0,150),new Vertex(270,290)),
                            new Edge(new Vertex(270,290),new Vertex(420,290)),
@@ -26,7 +27,10 @@ public class JellyObject extends Actor
         
         updateImage();
     }
-    
+    public void addShape(JellyShape j)
+    {
+        shapes.add(j);
+    }
     public void act() {
         updateImage();
         

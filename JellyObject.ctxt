@@ -1,15 +1,17 @@
 #BlueJ class context
 comment0.params=w
 comment0.target=void\ addedToWorld(greenfoot.World)
-comment1.params=
-comment1.target=void\ act()
+comment1.params=j
+comment1.target=void\ addShape(JellyShape)
 comment2.params=
-comment2.target=void\ updateImage()
+comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ processMovement()
+comment3.target=void\ updateImage()
 comment4.params=
-comment4.target=void\ processPhysics()
-comment5.params=value
-comment5.target=int\ round(double)
-comment5.text=d\r\n\ Faster\ than\ (int)Math.round(value)\r\n\ \r\n\ See\ http\://myscrambledmind.com/blog/?p\=43\r\n
-numComments=6
+comment4.target=void\ processMovement()
+comment5.params=
+comment5.target=void\ processPhysics()
+comment6.params=value
+comment6.target=int\ round(double)
+comment6.text=d\r\n\ Faster\ than\ (int)Math.round(value)\r\n\ \r\n\ See\ http\://myscrambledmind.com/blog/?p\=43\r\n
+numComments=7

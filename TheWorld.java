@@ -14,9 +14,24 @@ public class TheWorld extends World {
         GreenfootImage img = new GreenfootImage(WIDTH, HEIGHT);
         img.setColor(Color.CYAN);
         img.fill();
-        //setBackground(img);
         
+<<<<<<< HEAD
         setPaintOrder(gearmo.class, Start.class, CCBall.class, CBall.class, JellyObject.class, JellyShape.class);
+=======
+        switch(shapeCounter % 3) {
+            case 0:
+                addObject(new JellyWheel(50), 100, 100);
+                break;
+            case 1:
+                addObject(new JellyPentagon(), 100, 100);
+                break;
+            case 2:
+                addObject(new JellyTriangle(50), 100, 100);
+                break;
+        }
+        
+        setPaintOrder(Start.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
+>>>>>>> steven
 
         shapeCounter++;
     }
@@ -40,15 +55,16 @@ public class TheWorld extends World {
         
         CCBall ccball= new CCBall();
 
-        Start star= new Start();
-
+        Start start= new Start();
+        edgeicon edgei=new edgeicon();
         
         addObject(trirobot, 338, 80);
         trirobot.setLocation(339, 77);
         trirobot.setLocation(362, 77);
         addObject(cball,55,355);
         addObject(ccball,200,355);
-        addObject(star, 525 ,25);
+        addObject(start, 525 ,25);
+        addObject(edgei, 350, 355);
     }
         public void act(){
        if(soundPlay == 0){
