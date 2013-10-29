@@ -7,6 +7,7 @@ public class TheWorld extends World {
     public int soundPlay = 0;
     public boolean engine=false;
     public gearmo gearmo;
+    public JellyObject jellO;
     
     public TheWorld() {
         super(WIDTH, HEIGHT, 1);
@@ -15,29 +16,14 @@ public class TheWorld extends World {
         img.setColor(Color.CYAN);
         img.fill();
         
-<<<<<<< HEAD
-        setPaintOrder(gearmo.class, Start.class, CCBall.class, CBall.class, JellyObject.class, JellyShape.class);
-=======
-        switch(shapeCounter % 3) {
-            case 0:
-                addObject(new JellyWheel(50), 100, 100);
-                break;
-            case 1:
-                addObject(new JellyPentagon(), 100, 100);
-                break;
-            case 2:
-                addObject(new JellyTriangle(50), 100, 100);
-                break;
-        }
+        setPaintOrder(gearmo.class, Start.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
         
-        setPaintOrder(Start.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
->>>>>>> steven
-
         shapeCounter++;
     }
     private void prepare()
     {
         gearmo = new gearmo();
+        jellO = new JellyObject();
         addObject(gearmo, 100, 80);
         Smokestack smokestack = new Smokestack();
         addObject(smokestack, 332, 300);
@@ -66,11 +52,15 @@ public class TheWorld extends World {
         addObject(start, 525 ,25);
         addObject(edgei, 350, 355);
     }
-        public void act(){
+    public void act(){
        if(soundPlay == 0){
            soundPlay = 1;
            Greenfoot.playSound("Rolemusic_-_04_-_Scape_from_the_city.mp3");
         }
+    }
+    public JellyObject getJello()
+    {
+        return jellO;
     }
     
         public void started(){

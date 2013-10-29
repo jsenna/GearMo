@@ -8,12 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class edgeicon extends Actor
 {
-    private int x=350 ,y=355;
     public JellyObject JConstruct= new JellyObject();
     MouseInfo mouse=Greenfoot.getMouseInfo();
+    TheWorld world= (TheWorld) getWorld();
     public boolean tool=false;
     int limit = 0 ;
-    int savestartx=0,savestarty=0, saveendx=0, saveendy=0;
+    int savestartx=0,savestarty=0, saveendx=0, saveendy=0, x, y;
     public int rotation = 0;
     /**
      * Act - do whatever the BallIcon wants to do. This method is called whenever
@@ -28,16 +28,23 @@ public class edgeicon extends Actor
         }
         if(tool==true)
         {
+            if (Greenfoot.mouseDragged(null)){
+                /*MouseInfo mouse=Greenfoot.getMouseInfo();
+                x=mouse.getX();
+                y=mouse.getY();*/
+            }
             if(Greenfoot.mousePressed(null))
             {
-                savestartx= mouse.getX();
-                savestarty= mouse.getY();
+               /* savestartx= mouse.getX();
+                savestarty= mouse.getY();*/
             }
-            if(Greenfoot.mouseClicked(null))
+            if(Greenfoot.mouseClicked(world.getJello()))
             {
-                saveendx= mouse.getX();
-                saveendy= mouse.getY();
+               /* saveendx= x;
+                saveendy= y;*/
+                move(10);
             }
         }
-    }    
+    }
+    
 } 
