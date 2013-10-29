@@ -1,39 +1,28 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TitleButton here.
+ * Write a description of class WinBox here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TitleButton extends Button
+public class WinBox extends Actor
 {
     /**
-     * Act - do whatever the TitleButton wants to do. This method is called whenever
+     * Act - do whatever the WinBox wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
     public int animate = 0;
     public int endX;
     public int endY;
-   
-    
     public void act() 
     {
-        // Add your action code here.
-        super.act();
-        if(onThis){
-           setImage("blankButton.png");
-           
-        }
-        else{
-           setImage("blankButtonSmall.png");
-        }
+             super.act();
         if(animate == 0){
            animate = 1;
            endX = getX();
            endY = getY();
-           setLocation(-50,getY());
+           setLocation(-300,getY());
         }
         if(animate == 1 && getX() < endX){
            setLocation(getX() + 3,getY());
@@ -48,11 +37,8 @@ public class TitleButton extends Button
         
         if(Greenfoot.mouseClicked(this)){
             getWorld().stopped();
-            Greenfoot.setWorld(new TheWorld());
+            Greenfoot.setWorld(new TitleScreen());
            
         }
-        
     }    
-    
-
 }

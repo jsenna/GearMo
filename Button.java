@@ -23,14 +23,14 @@ public class Button extends Actor
         }
     
       
-      if(onThis){
+      /*if(onThis){
          img.scale(300,160);  
         setImage(img);
         }
       else{
         img.scale(150,80);
         setImage(img);
-        }
+        }*/
       
         
                    if(Greenfoot.mouseClicked(this)){

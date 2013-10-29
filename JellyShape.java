@@ -11,6 +11,11 @@ public abstract class JellyShape extends Actor {
                            new Edge(new Vertex(420,290),new Vertex(485,250)),
                            new Edge(new Vertex(485,250),new Vertex(600,250))};
     
+    public Edge plate_edges[] = {new Edge(new Vertex(460,251),new Vertex(610,251)),
+                           new Edge(new Vertex(610,251),new Vertex(610,291)),
+                           new Edge(new Vertex(610,291),new Vertex(460,291)),
+                           new Edge(new Vertex(460,291),new Vertex(460,251))};                       
+                           
     public void addedToWorld(World w) {
         setImage(img);
         
@@ -44,13 +49,13 @@ public abstract class JellyShape extends Actor {
         
         // Fill with the base color
         img.setColor(Color.RED);
-        int[] xPoints = new int[vertices.length /*- 1*/];
-        int[] yPoints = new int[vertices.length /*- 1*/];
-        for(int i = 0; i < vertices.length /*- 1*/; i++) {
+        int[] xPoints = new int[vertices.length - 1];
+        int[] yPoints = new int[vertices.length - 1];
+        for(int i = 0; i < vertices.length - 1; i++) {
             xPoints[i] = vertices[i].getRoundedX();
             yPoints[i] = vertices[i].getRoundedY();
         }
-        img.fillPolygon(xPoints, yPoints, vertices.length /*- 1*/);
+        img.fillPolygon(xPoints, yPoints, vertices.length - 1);
         
         // Draw all our edges
         img.setColor(Color.BLACK);
@@ -59,7 +64,7 @@ public abstract class JellyShape extends Actor {
             int y1 = e.getFirst().getRoundedY();
             int x2 = e.getSecond().getRoundedX();
             int y2 = e.getSecond().getRoundedY();
-            img.drawLine(x1, y1, x2, y2);
+            //img.drawLine(x1, y1, x2, y2);
         }
     }
     
@@ -127,6 +132,8 @@ public abstract class JellyShape extends Actor {
     }
     
     public void checkWallCollisions(Vertex v) {
+        
+        
         if(v.x < 0) {
             v.isColliding = true;
             v.x = 0;
@@ -158,9 +165,28 @@ public abstract class JellyShape extends Actor {
                     v.isColliding = true;
                     v.y = yEdge;
                     v.stop();
+                    //((TheWorld) getWorld()).pSwitch.activate();
                 }
             }
         }
+                for(int i = 0; i < plate_edges.length; i++)
+        {
+            if( v.x > plate_edges[i].first.x && v.x < plate_edges[i].second.x)
+            {
+                double diffX = v.x - plate_edges[i].first.x;
+                double diffEdge = plate_edges[i].second.x - plate_edges[i].first.x;
+                double yEdge = plate_edges[i].first.y + (plate_edges[i].second.y - plate_edges[i].first.y)*(diffX/diffEdge);
+                if(v.y > yEdge)
+                {
+                    /*v.isColliding = true;
+                    v.y = yEdge;
+                    v.stop();*/
+                    ((TheWorld) getWorld()).pSwitch.activate();
+                }
+            }
+        }
+        
+        
     }
     
     /**d
