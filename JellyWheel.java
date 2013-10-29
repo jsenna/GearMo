@@ -1,9 +1,9 @@
 import greenfoot.*;
 public class JellyWheel extends JellyShape {
-    public JellyWheel(double radius) {
+    public JellyWheel(double radius, double _torque) {
    
         int points = 10;
-        
+        torque = _torque;
         vertices = new Vertex[points + 1];
         
         for(int i = 0; i < points; i++)

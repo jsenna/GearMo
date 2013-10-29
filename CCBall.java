@@ -34,7 +34,7 @@ public class CCBall extends Actor
         if (Greenfoot.mouseClicked(this)) 
         {
             drag=false;
-            JellyWheel jel = new JellyWheel(25);
+            JellyWheel jel = new JellyWheel(25, .20);
             JConstruct.addShape(jel);
             getWorld().addObject(jel,x,y);
             setLocation(x,y);

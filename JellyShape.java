@@ -5,6 +5,7 @@ public abstract class JellyShape extends Actor {
     private GreenfootImage img = new GreenfootImage(TheWorld.WIDTH, TheWorld.HEIGHT);
     protected Vertex[] vertices;
     protected Edge[] edges;
+    public double torque = 0;
     
     public Edge world_edges[] = {new Edge(new Vertex(0,150),new Vertex(270,290)),
                            new Edge(new Vertex(270,290),new Vertex(420,290)),
@@ -64,7 +65,7 @@ public abstract class JellyShape extends Actor {
             int y1 = e.getFirst().getRoundedY();
             int x2 = e.getSecond().getRoundedX();
             int y2 = e.getSecond().getRoundedY();
-            img.drawLine(x1, y1, x2, y2);
+            //img.drawLine(x1, y1, x2, y2);
         }
     }
     
@@ -88,17 +89,19 @@ public abstract class JellyShape extends Actor {
             double xDiff = vertices[i].getX() - vertices[((i+1)%(vertices.length - 1))].getX();
             double yDiff = vertices[i].getY() - vertices[((i+1)%(vertices.length - 1))].getY();
             double angle = Math.atan2(yDiff, xDiff);
+            double _torque = torque;
             
             if(shouldSpinRight)
             {
-                vertices[i].incVSpeed(-.25 * Math.sin(angle));
-                vertices[i].incHSpeed(-.25 * Math.cos(angle));
+                _torque = -.25;
             }
             if(shouldSpinLeft)
             {
-                vertices[i].incVSpeed(.25 * Math.sin(angle));
-                vertices[i].incHSpeed(.25 * Math.cos(angle));
+                _torque = .25;
             }
+            
+            vertices[i].incVSpeed(_torque * Math.sin(angle));
+            vertices[i].incHSpeed(_torque * Math.cos(angle));
         }
     
     }
