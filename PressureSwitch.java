@@ -23,7 +23,7 @@ public class PressureSwitch extends Switchable
       
        on = 1;
        
-       if(((TheWorld)getWorld()).gearmo.getX() >= 420){
+       if(((TheWorld)getWorld()).gearmo.getX() >= 500 && ((TheWorld)getWorld()).gearmo.getY() >= 200 ){
         ((TheWorld)getWorld()).music.stop();
        Greenfoot.setWorld(new WinScreen());
        }
