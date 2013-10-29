@@ -6,6 +6,7 @@ public class TheWorld extends World {
     private static int shapeCounter = 0;
     public int soundPlay = 0;
     public boolean engine=false;
+    public gearmo gearmo;
     
     public TheWorld() {
         super(WIDTH, HEIGHT, 1);
@@ -15,25 +16,14 @@ public class TheWorld extends World {
         img.fill();
         //setBackground(img);
         
-        switch(shapeCounter % 3) {
-            case 0:
-                addObject(new JellyWheel(50), 100, 100);
-                break;
-            case 1:
-                addObject(new JellyPentagon(), 100, 100);
-                break;
-            case 2:
-                addObject(new JellyTriangle(50), 100, 100);
-                break;
-        }
-        
-        setPaintOrder(Start.class, CCBall.class, CBall.class, JellyObject.class, JellyShape.class);
+        setPaintOrder(gearmo.class, Start.class, CCBall.class, CBall.class, JellyObject.class, JellyShape.class);
 
         shapeCounter++;
     }
     private void prepare()
     {
-        
+        gearmo = new gearmo();
+        addObject(gearmo, 100, 80);
         Smokestack smokestack = new Smokestack();
         addObject(smokestack, 332, 300);
         WorldBack1 worldback = new WorldBack1();
