@@ -11,6 +11,7 @@ public class CCBall extends Actor
     private int x=200 ,y=355;
     public boolean reset;
     private Boolean drag=false;
+    public JellyObject JConstruct= new JellyObject();
     MouseInfo mouse=Greenfoot.getMouseInfo();
     public int rotation = 0;
     /**
@@ -34,6 +35,7 @@ public class CCBall extends Actor
         {
             drag=false;
             JellyWheel jel = new JellyWheel(25);
+            JConstruct.addShape(jel);
             getWorld().addObject(jel,x,y);
             setLocation(x,y);
             reset=false;
