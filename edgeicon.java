@@ -49,11 +49,13 @@ public class edgeicon extends Actor
             {
                 savestartx=x;
                 savestarty=y;
+                System.out.println("start " + savestartx + " " + savestarty);
             }
             if(Greenfoot.mouseClicked(world))
             {
                 saveendx= x;
                 saveendy= y;
+                System.out.println("end " + saveendx + " " + saveendy);
                 if(count==0)
                 {
                     lowest=1000;
@@ -64,11 +66,11 @@ public class edgeicon extends Actor
                             verX= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].x;
                             verY= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].y;
                             
-                            low = ((savestartx-verX)*(savestartx-verX) + (savestarty-verY)*(savestarty-verY));
+                            low = ((saveendx-verX)*(saveendx-verX) + (saveendy-verY)*(saveendy-verY));
                             StartlowV= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
                             if(low<lowest)
                             {
-                                lowest=((savestartx-verX)*(savestartx-verX) + (savestarty-verY)*(savestarty-verY));
+                                lowest=((saveendx-verX)*(saveendx-verX) + (saveendy-verY)*(saveendy-verY));
                                 StartlowV= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
                             }
                         }

@@ -2,7 +2,7 @@ import greenfoot.*;
 import java.awt.Color;
 public abstract class JellyShape extends Actor {
     private static final double ACCEL = 0.5;
-    private GreenfootImage img = new GreenfootImage(TheWorld.WIDTH, TheWorld.HEIGHT);
+    public GreenfootImage img = new GreenfootImage(TheWorld.WIDTH, TheWorld.HEIGHT);
     protected Vertex[] vertices;
     protected Edge[] edges;
     public double torque = 0;
@@ -43,7 +43,7 @@ public abstract class JellyShape extends Actor {
         
     }
     
-    private void updateImage() {
+    public void updateImage() {
 
         // Clear the image.
         img.clear();
