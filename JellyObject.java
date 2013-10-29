@@ -12,8 +12,8 @@ public class JellyObject extends Actor
 {
     private static final double ACCEL = 0.5;
     private GreenfootImage img = new GreenfootImage(TheWorld.WIDTH, TheWorld.HEIGHT);
-    protected ArrayList<JellyShape> shapes= new ArrayList<JellyShape>();
-    protected ArrayList<Edge> edges= new ArrayList<Edge>();
+    public ArrayList<JellyShape> shapes= new ArrayList<JellyShape>();
+    public ArrayList<Edge> edges= new ArrayList<Edge>();
     
     public Edge world_edges[] = {new Edge(new Vertex(0,150),new Vertex(270,290)),
                            new Edge(new Vertex(270,290),new Vertex(420,290)),
