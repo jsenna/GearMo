@@ -17,16 +17,18 @@ public class PressureSwitch extends Switchable
         // Add your action code here.
     }
     public void activate(){
-        Greenfoot.playSound("click.mp3");
+        //Greenfoot.playSound("click.mp3");
         if(on == 0){
        setImage("switchOn.png");
       
        on = 1;
-       } else{
-           setImage("switchOff.png");
-       on = 0;
-        }
+       
+       if(((TheWorld)getWorld()).gearmo.getX() >= 420){
+        ((TheWorld)getWorld()).music.stop();
+       Greenfoot.setWorld(new WinScreen());
+       }
        
     }
+}
     
 }

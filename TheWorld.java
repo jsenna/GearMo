@@ -8,9 +8,12 @@ public class TheWorld extends World {
     public boolean engine=false;
     public gearmo gearmo;
     public JellyObject jellO;
+    public GreenfootSound music;
+    public PressureSwitch pSwitch;
     
     public TheWorld() {
         super(WIDTH, HEIGHT, 1);
+        music = new GreenfootSound("Rolemusic_-_04_-_Scape_from_the_city.mp3");
         prepare();
         GreenfootImage img = new GreenfootImage(WIDTH, HEIGHT);
         img.setColor(Color.CYAN);
@@ -37,7 +40,7 @@ public class TheWorld extends World {
         pressureswitch.setLocation(549, 269);
 
         pressureswitch.setLocation(537, 271);
-
+        pSwitch = pressureswitch;
         TriRobot trirobot = new TriRobot();
         CBall cball= new CBall();
         
@@ -57,7 +60,7 @@ public class TheWorld extends World {
     public void act(){
        if(soundPlay == 0){
            soundPlay = 1;
-           Greenfoot.playSound("Rolemusic_-_04_-_Scape_from_the_city.mp3");
+           music.play();
         }
     }
     public JellyObject getJello()
