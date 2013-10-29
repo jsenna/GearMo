@@ -44,13 +44,13 @@ public abstract class JellyShape extends Actor {
         
         // Fill with the base color
         img.setColor(Color.RED);
-        int[] xPoints = new int[vertices.length - 1];
-        int[] yPoints = new int[vertices.length - 1];
-        for(int i = 0; i < vertices.length - 1; i++) {
+        int[] xPoints = new int[vertices.length /*- 1*/];
+        int[] yPoints = new int[vertices.length /*- 1*/];
+        for(int i = 0; i < vertices.length /*- 1*/; i++) {
             xPoints[i] = vertices[i].getRoundedX();
             yPoints[i] = vertices[i].getRoundedY();
         }
-        img.fillPolygon(xPoints, yPoints, vertices.length - 1);
+        img.fillPolygon(xPoints, yPoints, vertices.length /*- 1*/);
         
         // Draw all our edges
         img.setColor(Color.BLACK);
@@ -59,7 +59,7 @@ public abstract class JellyShape extends Actor {
             int y1 = e.getFirst().getRoundedY();
             int x2 = e.getSecond().getRoundedX();
             int y2 = e.getSecond().getRoundedY();
-            //img.drawLine(x1, y1, x2, y2);
+            img.drawLine(x1, y1, x2, y2);
         }
     }
     

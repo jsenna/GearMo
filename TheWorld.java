@@ -23,8 +23,10 @@ public class TheWorld extends World {
     private void prepare()
     {
         gearmo = new gearmo();
+        JellyGearMo jellyGearMo = new JellyGearMo();
         jellO = new JellyObject();
         addObject(gearmo, 100, 80);
+        addObject(jellyGearMo, 100, 80);
         Smokestack smokestack = new Smokestack();
         addObject(smokestack, 332, 300);
         WorldBack1 worldback = new WorldBack1();

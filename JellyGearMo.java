@@ -18,19 +18,29 @@ public class JellyGearMo extends JellyShape
     {
         bl = new Vertex(-30, 0);
         br = new Vertex(30,0);
+        //Vertex tl = new Vertex(-30, -50);
+        //Vertex tr = new Vertex(30, -50);
         
-        vertices = new Vertex[] {bl, br};
-        edges = new Edge[] {new Edge(bl, br)};
+        vertices = new Vertex[] {bl, br};//, tl, tr};
+        edges = new Edge[] {new Edge(bl, br)};/*, new Edge(tl, tr), new Edge(bl, tl), new Edge(br, tr)
+        , new Edge(bl, tr), new Edge(br, tl)};*/
     }
     
     public void act()
     {
         super.act();
-        double xDiff = bl.getX() - br.getX();
-        double yDiff = bl.getY() - br.getY();
+        double xDiff = br.x - bl.x;
+        double yDiff = br.y - bl.y;
         double angle = Math.atan2(yDiff, xDiff);
         
-        //((TheWorld) getWorld()).gearmo.setRotation(angle);
+        double xAvg = (bl.x + br.x)/2;
+        double yAvg = (bl.y + br.y)/2;
+        double imgX = xAvg + 46* Math.sin(angle);
+        double imgY = yAvg - 46* Math.cos(angle);
+        System.out.println("angle " + angle + "avg " + xAvg + " " + yAvg);
+        ((TheWorld) getWorld()).gearmo.setLocation((int)imgX, (int)imgY);
+        ((TheWorld) getWorld()).gearmo.setRotation((int)(angle * (180/3.14)));
+        
     }
         
         
