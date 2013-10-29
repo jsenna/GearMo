@@ -9,9 +9,9 @@ public class JellyWheel extends JellyShape {
         for(int i = 0; i < points; i++)
         {
             double theta = 2 * 3.141592653 * ((double)i / (double)points);
-            System.out.println(theta + " " + i + " " + radius + " " + Math.cos(theta) + " " + Math.sin(theta));
+            //System.out.println(theta + " " + i + " " + radius + " " + Math.cos(theta) + " " + Math.sin(theta));
             vertices[i] = new Vertex(radius * Math.cos(theta), radius * Math.sin(theta));
-            System.out.println("x: [" + radius * Math.cos(theta) +"] y: [" + radius * Math.sin(theta));
+            //System.out.println("x: [" + radius * Math.cos(theta) +"] y: [" + radius * Math.sin(theta));
         }
         
         vertices[points] = new Vertex(0, 0);
