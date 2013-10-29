@@ -22,13 +22,6 @@ public class TitleButton extends Button
     {
         // Add your action code here.
         super.act();
-        if(onThis){
-           setImage("blankButton.png");
-           
-        }
-        else{
-           setImage("blankButtonSmall.png");
-        }
         if(animate == 0){
            animate = 1;
            endX = getX();
@@ -51,7 +44,6 @@ public class TitleButton extends Button
             Greenfoot.setWorld(new TheWorld());
            
         }
-        
     }    
     
 

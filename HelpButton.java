@@ -20,13 +20,6 @@ public class HelpButton extends Button
     {
         // Add your action code here.
         super.act();
-         if(onThis){
-           setImage("helpButton.png");
-           
-        }
-        else{
-           setImage("helpButtonSmall.png");
-        }
                if(animate == 0){
            animate = 1;
            endX = getX();
