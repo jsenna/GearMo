@@ -12,6 +12,7 @@ public class edgeicon extends Actor
     MouseInfo mouse=Greenfoot.getMouseInfo();
     TheWorld world= (TheWorld) getWorld();
     public boolean tool=false;
+    public boolean mousedown=false;
     int limit = 0 ;
     int savestartx=0,savestarty=0, saveendx=0, saveendy=0, x, y;
     public int rotation = 0;
@@ -23,26 +24,31 @@ public class edgeicon extends Actor
     {
         if (Greenfoot.mouseClicked(this)) 
         {
-            if( tool==false){tool=true;}
-            else{tool=false;}
+            if(tool==false){
+                tool=true;
+                setImage("Rod.png");
+            }
+            else{
+                tool=false;
+                setImage("Rodoff.png");
+            }
         }
         if(tool==true)
         {
-            if (Greenfoot.mouseDragged(null)){
-                /*MouseInfo mouse=Greenfoot.getMouseInfo();
+            if (Greenfoot.mouseDragged(world)){
+                MouseInfo mouse=Greenfoot.getMouseInfo();
                 x=mouse.getX();
-                y=mouse.getY();*/
+                y=mouse.getY();
             }
-            if(Greenfoot.mousePressed(null))
+            if(Greenfoot.mousePressed(world))
             {
-               /* savestartx= mouse.getX();
-                savestarty= mouse.getY();*/
+                savestartx=x;
+                savestarty=y;
             }
-            if(Greenfoot.mouseClicked(world.getJello()))
+            if(Greenfoot.mouseClicked(world))
             {
-               /* saveendx= x;
-                saveendy= y;*/
-                move(10);
+                saveendx= x;
+                saveendy= y;
             }
         }
     }
