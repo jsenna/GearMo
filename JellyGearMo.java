@@ -37,7 +37,7 @@ public class JellyGearMo extends JellyShape
         double yAvg = (bl.y + br.y)/2;
         double imgX = xAvg + 46* Math.sin(angle);
         double imgY = yAvg - 46* Math.cos(angle);
-        System.out.println("angle " + angle + "avg " + xAvg + " " + yAvg);
+        //System.out.println("angle " + angle + "avg " + xAvg + " " + yAvg);
         ((TheWorld) getWorld()).gearmo.setLocation((int)imgX, (int)imgY);
         ((TheWorld) getWorld()).gearmo.setRotation((int)(angle * (180/3.14)));
         

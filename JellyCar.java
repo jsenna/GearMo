@@ -19,8 +19,8 @@ public class JellyCar extends JellyObject
         //edges = new Edge[1];
         radius = _radius;
         
-        shapes.add(new JellyWheel(radius));
-        shapes.add(new JellyWheel(radius));
+        shapes.add(new JellyWheel(radius, 0));
+        shapes.add(new JellyWheel(radius, 0));
     }
     
     public void addedToWorld(World w) {
