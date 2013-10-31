@@ -71,7 +71,8 @@ public class TitleScreen extends World
         titlegear.setLocation(300, 200);
         
         
-        
+        //Options option= new Options();
+       // addObject(option, 520, 50);
         
     }
     

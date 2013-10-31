@@ -8,6 +8,7 @@ public class TheWorld extends World {
     public boolean engine=false;
     public boolean build=true;
     public gearmo gearmo;
+    JellyGearMo jellyGearMo;
     public JellyObject jellO;
     public GreenfootSound music;
     public PressureSwitch pSwitch;
@@ -20,17 +21,15 @@ public class TheWorld extends World {
         img.setColor(Color.CYAN);
         img.fill();
         
-        setPaintOrder(gearmo.class, Start.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
+        setPaintOrder(gearmo.class, Start.class, reset.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
         
         shapeCounter++;
     }
     private void prepare()
     {
-        gearmo = new gearmo();
-        JellyGearMo jellyGearMo = new JellyGearMo();
+        Gearmoposition();
+        
         jellO = new JellyObject();
-        addObject(gearmo, 100, 80);
-        addObject(jellyGearMo, 100, 80);
         Smokestack smokestack = new Smokestack();
         addObject(smokestack, 332, 300);
         WorldBack1 worldback = new WorldBack1();
@@ -48,6 +47,7 @@ public class TheWorld extends World {
         CCBall ccball= new CCBall();
 
         Start start= new Start();
+        reset reset= new reset();
         edgeicon edgei=new edgeicon();
         
         addObject(trirobot, 338, 80);
@@ -56,6 +56,7 @@ public class TheWorld extends World {
         addObject(cball,55,355);
         addObject(ccball,200,355);
         addObject(start, 525 ,25);
+        addObject(reset, 525, 60);
         addObject(edgei, 350, 355);
     }
     public void act(){
@@ -79,5 +80,12 @@ public class TheWorld extends World {
       Greenfoot.setWorld(new TitleScreen()); //starts a new world          
   }
   
+  public void Gearmoposition()
+  {
+      gearmo = new gearmo();
+      jellyGearMo = new JellyGearMo();
+      addObject(gearmo, 100, 80);
+      addObject(jellyGearMo, 100, 80);
+  }
 
 }
