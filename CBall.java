@@ -19,32 +19,35 @@ public class CBall extends Actor
      */
     public void act() 
     {
-        rotation++;
-        setRotation(rotation);
-        if (Greenfoot.mouseDragged(this)) {
-            MouseInfo mouse=Greenfoot.getMouseInfo();
-            x=mouse.getX();
-            y=mouse.getY();
-        } 
-        if (Greenfoot.mousePressed(this)){
-            drag=true;
-            reset=true;
-        }
-        if (Greenfoot.mouseClicked(this)) 
+        if(((TheWorld) getWorld()).build==true)
         {
-            drag=false;
-            JellyWheel jel = new JellyWheel(25, -.20);
-            ((TheWorld) getWorld()).jellO.addShape(jel);
-            getWorld().addObject(jel,x,y);
-            setLocation(x,y);
-            reset=false;
-        }
-        if(reset==false)
-        {
-            setLocation(55,355);
-        }else
-        {
-            setLocation(x,y);
+            rotation++;
+            setRotation(rotation);
+            if (Greenfoot.mouseDragged(this)) {
+                MouseInfo mouse=Greenfoot.getMouseInfo();
+                x=mouse.getX();
+                y=mouse.getY();
+            } 
+            if (Greenfoot.mousePressed(this)){
+                drag=true;
+                reset=true;
+            }
+            if (Greenfoot.mouseClicked(this)) 
+            {
+                drag=false;
+                JellyWheel jel = new JellyWheel(25, -.20);
+                ((TheWorld) getWorld()).jellO.addShape(jel);
+                getWorld().addObject(jel,x,y);
+                setLocation(x,y);
+                reset=false;
+            }
+            if(reset==false)
+            {
+                setLocation(55,355);
+            }else
+            {
+                setLocation(x,y);
+            }
         }
     } 
     

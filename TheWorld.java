@@ -6,6 +6,7 @@ public class TheWorld extends World {
     private static int shapeCounter = 0;
     public int soundPlay = 0;
     public boolean engine=false;
+    public boolean build=true;
     public gearmo gearmo;
     public JellyObject jellO;
     public GreenfootSound music;

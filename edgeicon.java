@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+
 /**
  * Write a description of class edgeicon here.
  * 
@@ -12,41 +13,109 @@ public class edgeicon extends Actor
     TheWorld world= (TheWorld) getWorld();
     public boolean tool=false;
     public boolean mousedown=false;
-    int limit = 0 ;
     int count = 0;
     double verX, verY;
     double lowest;
-    double low;
-    Vertex StartlowV, EndlowV;
-    int savestartx=0,savestarty=0, saveendx=0, saveendy=0, x, y;
-    public int rotation = 0;
+    double save;
+    Vertex V1, V2;
+    double savestartx=0,savestarty=0, saveendx=0, saveendy=0;
     /**
      * Act - do whatever the BallIcon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        if (Greenfoot.mouseClicked(this)) 
+        if(((TheWorld) getWorld()).build==true)
         {
-            if(tool==false){
-                tool=true;
-                setImage("Rod.png");
-            }
-            else{
-                tool=false;
-                setImage("Rodoff.png");
-            }
-        }
-        if(tool==true)
-        {
-            if(Greenfoot.mouseClicked(world))
+            if(tool==true)
             {
-                MouseInfo mouse=Greenfoot.getMouseInfo();
-                if(count==0)
+                if(Greenfoot.mouseClicked(world))
                 {
-                    savestartx=mouse.getX();
-                    savestarty=mouse.getY();
-                    System.out.println("start " + savestartx + " " + savestarty);
+                    MouseInfo mouse=Greenfoot.getMouseInfo();
+                    if(count==1)
+                    {
+                        saveendx=mouse.getX();
+                        saveendy=mouse.getY();
+                        lowest=10;
+                        
+                        System.out.println("end " + saveendx + " " + saveendy);
+                        
+                         for(int j=0;j<((TheWorld) getWorld()).jellO.shapes.size();j++)
+                        {
+                            for(int k=0; k<((TheWorld) getWorld()).jellO.shapes.get(j).vertices.length;k++)
+                            {
+                                verX= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].x;
+                                verY= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].y;
+                                
+                                double dis=calcDistance(verX,verY,saveendx,saveendy);
+                                if(dis<lowest)
+                                {
+                                    lowest=dis;
+                                    V2= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
+                                }
+                                System.out.println("distance: " + dis);
+                                //System.out.println(dis);
+                                //System.out.println(k+ " x: " + verX + " y: "+ verY);
+                            }
+                        }
+                        
+                        System.out.println("lowest: " + lowest);
+                        
+                        if(lowest==10)
+                        {
+                            System.out.println("Too far!");
+                        }
+                        
+                        
+                        tool=false;
+                        setImage("Rodoff.png");
+                    }
+                    if(count==0)
+                    {
+                        savestartx=mouse.getX();
+                        savestarty=mouse.getY();
+                        lowest=10;
+                        
+                        System.out.println("start " + savestartx + " " + savestarty);
+                        
+                        for(int j=0;j<((TheWorld) getWorld()).jellO.shapes.size();j++)
+                        {
+                            for(int k=0; k<((TheWorld) getWorld()).jellO.shapes.get(j).vertices.length;k++)
+                            {
+                                verX= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].x;
+                                verY= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].y;
+                                
+                                double dis=calcDistance(verX,verY,savestartx,savestarty);
+                                if(dis<lowest)
+                                {
+                                    lowest=dis;
+                                    V1= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
+                                }
+                                System.out.println("distance: " + dis);
+                                //System.out.println(dis);
+                                //System.out.println(k+ " x: " + verX + " y: "+ verY);
+                            }
+                        }
+                        System.out.println("lowest: " + lowest);
+                        if(lowest==10)
+                        {
+                            System.out.println("Too far!");
+                        }
+                        setImage("Rodblue1.png");
+                        count++;
+                    }
+                }
+            }
+            if (Greenfoot.mouseClicked(this)) 
+            {
+                if(tool==false){
+                    tool=true;
+                    count=0;
+                    setImage("Rodred1.png");
+                }
+                else{
+                    tool=false;
+                    setImage("Rodoff.png");
                 }
             }
         }
@@ -54,23 +123,7 @@ public class edgeicon extends Actor
     
     private double calcDistance(double x1, double y1, double x2, double y2)
     {
-        for(int j=0;j<((TheWorld) getWorld()).jellO.shapes.size();j++)
-        {
-            for(int k=0; k<((TheWorld) getWorld()).jellO.shapes.get(j).vertices.length;k++)
-            {
-                verX= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].x;
-                verY= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].y;
-                
-                low = ((saveendx-verX)*(saveendx-verX) + (saveendy-verY)*(saveendy-verY));
-                StartlowV= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
-                if(low<lowest)
-                {
-                    lowest=((saveendx-verX)*(saveendx-verX) + (saveendy-verY)*(saveendy-verY));
-                    StartlowV= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
-                }
-            }
-        }
-        return 0;
+        return Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2)); 
     }
     
 } 
