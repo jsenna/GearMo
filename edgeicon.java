@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class edgeicon extends Actor
 {
     public JellyObject JConstruct= new JellyObject();
-    MouseInfo mouse=Greenfoot.getMouseInfo();
     TheWorld world= (TheWorld) getWorld();
     public boolean tool=false;
     public boolean mousedown=false;
@@ -40,69 +39,38 @@ public class edgeicon extends Actor
         }
         if(tool==true)
         {
-            if (Greenfoot.mouseDragged(world)){
-                MouseInfo mouse=Greenfoot.getMouseInfo();
-                x=mouse.getX();
-                y=mouse.getY();
-            }
-            if(Greenfoot.mousePressed(world))
-            {
-                savestartx=x;
-                savestarty=y;
-                System.out.println("start " + savestartx + " " + savestarty);
-            }
             if(Greenfoot.mouseClicked(world))
             {
-                saveendx= x;
-                saveendy= y;
-                System.out.println("end " + saveendx + " " + saveendy);
+                MouseInfo mouse=Greenfoot.getMouseInfo();
                 if(count==0)
                 {
-                    lowest=1000;
-                    for(int j=0;j<((TheWorld) getWorld()).jellO.shapes.size();j++)
-                    {
-                        for(int k=0; k<((TheWorld) getWorld()).jellO.shapes.get(j).vertices.length;k++)
-                        {
-                            verX= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].x;
-                            verY= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].y;
-                            
-                            low = ((saveendx-verX)*(saveendx-verX) + (saveendy-verY)*(saveendy-verY));
-                            StartlowV= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
-                            if(low<lowest)
-                            {
-                                lowest=((saveendx-verX)*(saveendx-verX) + (saveendy-verY)*(saveendy-verY));
-                                StartlowV= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
-                            }
-                        }
-                    }
+                    savestartx=mouse.getX();
+                    savestarty=mouse.getY();
+                    System.out.println("start " + savestartx + " " + savestarty);
                 }
-                if(count==1)
-                {
-                    lowest=1000;
-                    for(int j=0;j<((TheWorld) getWorld()).jellO.shapes.size();j++)
-                    {
-                        for(int k=0; k<((TheWorld) getWorld()).jellO.shapes.get(j).vertices.length;k++)
-                        {
-                            verX= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].x;
-                            verY= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].y;
-                            
-                            low = ((saveendx-verX)*(saveendx-verX) + (saveendy-verY)*(saveendy-verY));
-                            EndlowV= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
-                            if(low<lowest)
-                            {
-                                lowest=((saveendx-verX)*(saveendx-verX) + (saveendy-verY)*(saveendy-verY));
-                                EndlowV= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
-                            }
-                        }
-                    }
-                }
-                count++;
-            }
-            if(count==2){
-                ((TheWorld) getWorld()).jellO.edges.add(new Edge(StartlowV, EndlowV));
-                count=0;
             }
         }
+    }
+    
+    private double calcDistance(double x1, double y1, double x2, double y2)
+    {
+        for(int j=0;j<((TheWorld) getWorld()).jellO.shapes.size();j++)
+        {
+            for(int k=0; k<((TheWorld) getWorld()).jellO.shapes.get(j).vertices.length;k++)
+            {
+                verX= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].x;
+                verY= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].y;
+                
+                low = ((saveendx-verX)*(saveendx-verX) + (saveendy-verY)*(saveendy-verY));
+                StartlowV= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
+                if(low<lowest)
+                {
+                    lowest=((saveendx-verX)*(saveendx-verX) + (saveendy-verY)*(saveendy-verY));
+                    StartlowV= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
+                }
+            }
+        }
+        return 0;
     }
     
 } 

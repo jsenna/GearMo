@@ -65,7 +65,7 @@ public abstract class JellyShape extends Actor {
             int y1 = e.getFirst().getRoundedY();
             int x2 = e.getSecond().getRoundedX();
             int y2 = e.getSecond().getRoundedY();
-            //img.drawLine(x1, y1, x2, y2);
+            img.drawLine(x1, y1, x2, y2);
         }
     }
     
