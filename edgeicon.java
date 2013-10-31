@@ -18,6 +18,8 @@ public class edgeicon extends Actor
     double lowest;
     double save;
     Vertex V1, V2;
+    int JJ,KK;
+    int JJ2, KK2;
     double savestartx=0,savestarty=0, saveendx=0, saveendy=0;
     /**
      * Act - do whatever the BallIcon wants to do. This method is called whenever
@@ -52,6 +54,9 @@ public class edgeicon extends Actor
                                 {
                                     lowest=dis;
                                     V2= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
+                                    JJ2=j;
+                                    KK2=k;
+                                    System.out.println("New lowest " + V2.x + " " + V2.y);
                                 }
                                 System.out.println("distance: " + dis);
                                 //System.out.println(dis);
@@ -66,6 +71,10 @@ public class edgeicon extends Actor
                             System.out.println("Too far!");
                         }
                         
+                        System.out.println("V1 " + V1.x + " " + V1.y + "V2 " + V2.x + " " + V2.y);
+                        System.out.println(((TheWorld) getWorld()).jellO.edges.size());
+                       ((TheWorld) getWorld()).jellO.edges.add(new Edge(((TheWorld) getWorld()).jellO.shapes.get(JJ).vertices[KK], ((TheWorld) getWorld()).jellO.shapes.get(JJ2).vertices[KK2]));
+                       System.out.println(((TheWorld) getWorld()).jellO.edges.size());
                         
                         tool=false;
                         setImage("Rodoff.png");
@@ -90,6 +99,8 @@ public class edgeicon extends Actor
                                 {
                                     lowest=dis;
                                     V1= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
+                                    JJ = j;
+                                    KK = k;
                                 }
                                 System.out.println("distance: " + dis);
                                 //System.out.println(dis);

@@ -30,6 +30,8 @@ public class TheWorld extends World {
         Gearmoposition();
         
         jellO = new JellyObject();
+        jellO.shapes.add(jellyGearMo);
+        addObject(jellO, 0, 0);
         Smokestack smokestack = new Smokestack();
         addObject(smokestack, 332, 300);
         WorldBack1 worldback = new WorldBack1();

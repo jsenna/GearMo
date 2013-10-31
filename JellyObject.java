@@ -27,9 +27,10 @@ public class JellyObject extends Actor
         
         updateImage();
     }
-    public void addShape(JellyShape j)
+    public void addShape(JellyShape j, int x, int y)
     {
         shapes.add(j);
+        getWorld().addObject(j,x,y);
     }
     public void act() {
         updateImage();
