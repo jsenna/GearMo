@@ -33,7 +33,6 @@ public class TheWorld extends LevelArea {
         trirobot.setLocation(339, 77);
         trirobot.setLocation(362, 77);
         nWorld = new Level2World();
-
     }
     public void act(){
        if(soundPlay == 0){
