@@ -11,7 +11,7 @@ import java.awt.Color;
 public class JellyObject extends Actor
 {
     private static final double ACCEL = 0.5;
-    private GreenfootImage img = new GreenfootImage(TheWorld.WIDTH, TheWorld.HEIGHT);
+    private GreenfootImage img = new GreenfootImage(LevelArea.WIDTH, LevelArea.HEIGHT);
     public ArrayList<JellyShape> shapes= new ArrayList<JellyShape>();
     public ArrayList<Edge> edges= new ArrayList<Edge>();
     

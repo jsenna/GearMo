@@ -16,8 +16,8 @@ public class Start extends Actor
     {
         if(Greenfoot.mouseClicked(this))
         {
-            ((TheWorld) getWorld()).engine=true;
-            ((TheWorld) getWorld()).build= false;
+            ((LevelArea) getWorld()).engine=true;
+            ((LevelArea) getWorld()).build= false;
         }
     }    
 }

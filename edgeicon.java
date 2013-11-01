@@ -27,7 +27,7 @@ public class edgeicon extends Actor
      */
     public void act() 
     {
-        if(((TheWorld) getWorld()).build==true)
+        if(((LevelArea) getWorld()).build==true)
         {
             if(tool==true)
             {
@@ -42,18 +42,18 @@ public class edgeicon extends Actor
                         
                         //System.out.println("end " + saveendx + " " + saveendy);
                         
-                         for(int j=0;j<((TheWorld) getWorld()).jellO.shapes.size();j++)
+                         for(int j=0;j<((LevelArea) getWorld()).jellO.shapes.size();j++)
                         {
-                            for(int k=0; k<((TheWorld) getWorld()).jellO.shapes.get(j).vertices.length;k++)
+                            for(int k=0; k<((LevelArea) getWorld()).jellO.shapes.get(j).vertices.length;k++)
                             {
-                                verX= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].x;
-                                verY= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].y;
+                                verX= ((LevelArea) getWorld()).jellO.shapes.get(j).vertices[k].x;
+                                verY= ((LevelArea) getWorld()).jellO.shapes.get(j).vertices[k].y;
                                 
                                 double dis=calcDistance(verX,verY,saveendx,saveendy);
                                 if(dis<lowest)
                                 {
                                     lowest=dis;
-                                    V2= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
+                                    V2= ((LevelArea) getWorld()).jellO.shapes.get(j).vertices[k];
                                     JJ2=j;
                                     KK2=k;
                                     //System.out.println("New lowest " + V2.x + " " + V2.y);
@@ -73,7 +73,7 @@ public class edgeicon extends Actor
                         
                         //System.out.println("V1 " + V1.x + " " + V1.y + "V2 " + V2.x + " " + V2.y);
                         // System.out.println(((TheWorld) getWorld()).jellO.edges.size());
-                        ((TheWorld) getWorld()).jellO.edges.add(new Edge(((TheWorld) getWorld()).jellO.shapes.get(JJ).vertices[KK], ((TheWorld) getWorld()).jellO.shapes.get(JJ2).vertices[KK2]));
+                        ((LevelArea) getWorld()).jellO.edges.add(new Edge(((LevelArea) getWorld()).jellO.shapes.get(JJ).vertices[KK], ((LevelArea) getWorld()).jellO.shapes.get(JJ2).vertices[KK2]));
                         //System.out.println(((TheWorld) getWorld()).jellO.edges.size());
                         
                         tool=false;
@@ -87,18 +87,18 @@ public class edgeicon extends Actor
                         
                         //System.out.println("start " + savestartx + " " + savestarty);
                         
-                        for(int j=0;j<((TheWorld) getWorld()).jellO.shapes.size();j++)
+                        for(int j=0;j<((LevelArea) getWorld()).jellO.shapes.size();j++)
                         {
-                            for(int k=0; k<((TheWorld) getWorld()).jellO.shapes.get(j).vertices.length;k++)
+                            for(int k=0; k<((LevelArea) getWorld()).jellO.shapes.get(j).vertices.length;k++)
                             {
-                                verX= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].x;
-                                verY= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k].y;
+                                verX= ((LevelArea) getWorld()).jellO.shapes.get(j).vertices[k].x;
+                                verY= ((LevelArea) getWorld()).jellO.shapes.get(j).vertices[k].y;
                                 
                                 double dis=calcDistance(verX,verY,savestartx,savestarty);
                                 if(dis<lowest)
                                 {
                                     lowest=dis;
-                                    V1= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
+                                    V1= ((LevelArea) getWorld()).jellO.shapes.get(j).vertices[k];
                                     JJ = j;
                                     KK = k;
                                 }
@@ -126,6 +126,7 @@ public class edgeicon extends Actor
                 }
                 else{
                     tool=false;
+                    setImage("Rodoff.png");
                 }
             }
             if(tool==false)

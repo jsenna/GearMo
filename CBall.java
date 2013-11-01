@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CBall extends Actor
 {
-    private int x= 55,y=355;
+    private int x= 55,y=500;
     public boolean reset;
     private Boolean drag=false;
     MouseInfo mouse=Greenfoot.getMouseInfo();
@@ -19,7 +19,7 @@ public class CBall extends Actor
      */
     public void act() 
     {
-        if(((TheWorld) getWorld()).build==true)
+        if(((LevelArea) getWorld()).build==true)
         {
             rotation++;
             setRotation(rotation);
@@ -36,13 +36,13 @@ public class CBall extends Actor
             {
                 drag=false;
                 JellyWheel jel = new JellyWheel(25, .20);
-                ((TheWorld) getWorld()).jellO.addShape(jel, x, y);
+                ((LevelArea) getWorld()).jellO.addShape(jel, x, y);
                 setLocation(x,y);
                 reset=false;
             }
             if(reset==false)
             {
-                setLocation(55,355);
+                setLocation(55,500);
             }else
             {
                 setLocation(x,y);

@@ -14,9 +14,9 @@ public class reset extends Actor
      */
     public void act() 
     {
+        setImage("reset.png");
         if(Greenfoot.mouseClicked(this))
         {
-            setImage("reset.png");
             getWorld().removeObjects(getWorld().getObjects(JellyWheel.class));
             getWorld().removeObjects(getWorld().getObjects(gearmo.class));
             getWorld().removeObjects(getWorld().getObjects(JellyGearMo.class));

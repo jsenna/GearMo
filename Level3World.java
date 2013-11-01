@@ -1,25 +1,32 @@
-import greenfoot.*;
-import java.awt.Color;
-public class TheWorld extends LevelArea {
-    
-    public TheWorld() {
-        
-       
-        prepareInterface();
-        prepare();
-        
-        
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Level3World here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Level3World extends LevelArea
+{
+
+    /**
+     * Constructor for objects of class Level3World.
+     * 
+     */
+    public Level3World()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+       prepareInterface();
+       prepare();
         setPaintOrder(gearmo.class, Start.class, reset.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
-        
-        shapeCounter++;
     }
-    private void prepare()
-    {
-        Gearmoposition();
+    
+       public void prepare(){
+                Gearmoposition();
         insertJelObjects();
         Smokestack smokestack = new Smokestack();
         addObject(smokestack, 332, 300);
-        WorldBack1 worldback = new WorldBack1();
+        WorldBack5 worldback = new WorldBack5();
         addObject(worldback,WIDTH/2,HEIGHT/2);
         addObject(smokestack, 400, 300);
         PressureSwitch pressureswitch = new PressureSwitch();
@@ -32,31 +39,9 @@ public class TheWorld extends LevelArea {
         addObject(trirobot, 338, 80);
         trirobot.setLocation(339, 77);
         trirobot.setLocation(362, 77);
-        nWorld = new Level2World();
-
+        nWorld = new WinScreen();
     }
-    public void act(){
-       if(soundPlay == 0){
-           soundPlay = 1;
-           music.play();
-        }
-    }
-    public JellyObject getJello()
-    {
-        return jellO;
-    }
-    
-        public void started(){
-       // Greenfoot.playSound("Rolemusic_-_04_-_Scape_from_the_city.mp3");
-    }
-    
-    public void reset() 
-   {
-       soundPlay = 0;
-      Greenfoot.setWorld(new TitleScreen()); //starts a new world          
-  }
-  
-  public void Gearmoposition()
+      public void Gearmoposition()
   {
       gearmo = new gearmo();
       jellyGearMo = new JellyGearMo();
@@ -69,5 +54,4 @@ public class TheWorld extends LevelArea {
       jellO.shapes.add(jellyGearMo);
       addObject(jellO, 0, 0);
   }
-
 }

@@ -23,11 +23,11 @@ public class PressureSwitch extends Switchable
       
        
        
-       if(((TheWorld)getWorld()).gearmo.getX() >= 450 ){
+       if(((LevelArea)getWorld()).gearmo.getX() >= 450 ){
            setImage("switchOn.png");
            
-        ((TheWorld)getWorld()).music.stop();
-       Greenfoot.setWorld(new WinScreen());
+        ((LevelArea)getWorld()).nextWorld();
+       //Greenfoot.setWorld(new WinScreen());
        }
        
     }
