@@ -23,7 +23,7 @@ public class TheWorld extends LevelArea {
         addObject(worldback,WIDTH/2,HEIGHT/2);
         addObject(smokestack, 400, 300);
         PressureSwitch pressureswitch = new PressureSwitch();
-        addObject(pressureswitch, 1013, 571);
+        addObject(pressureswitch, 760, 571);
         
 
         pressureswitch.setLocation(913, 490);

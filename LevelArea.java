@@ -13,7 +13,7 @@ public class LevelArea extends World
      * Constructor for objects of class LevelArea.
      * 
      */
-        public static final int WIDTH = 800;
+    public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
     public static int shapeCounter = 0;
     public int soundPlay = 0;
@@ -45,8 +45,8 @@ public class LevelArea extends World
         
         addObject(cball,55,500);
         addObject(ccball,200,500);
-        addObject(start, 925 ,25);
-        addObject(reset, 925, 60);
+        addObject(start, 720 ,25);
+        addObject(reset, 720, 60);
         addObject(edgei, 350, 500);
     }
         public void act(){
@@ -64,4 +64,18 @@ public class LevelArea extends World
   public void nextWorld(){
      Greenfoot.setWorld(nWorld);
     }
+    
+    public void Gearmoposition()
+  {
+      gearmo = new gearmo();
+      jellyGearMo = new JellyGearMo();
+      addObject(gearmo, 100, 80);
+      addObject(jellyGearMo, 100, 80);
+  }
+  public void insertJelObjects()
+  {
+      jellO = new JellyObject();
+      jellO.shapes.add(jellyGearMo);
+      addObject(jellO, 0, 0);
+  }
 }

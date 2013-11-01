@@ -21,10 +21,10 @@ public class reset extends Actor
             getWorld().removeObjects(getWorld().getObjects(gearmo.class));
             getWorld().removeObjects(getWorld().getObjects(JellyGearMo.class));
             getWorld().removeObjects(getWorld().getObjects(JellyObject.class));
-            ((TheWorld) getWorld()).Gearmoposition();
-            ((TheWorld) getWorld()).insertJelObjects();
-            ((TheWorld) getWorld()).engine=false;
-            ((TheWorld) getWorld()).build= true;
+            ((LevelArea) getWorld()).Gearmoposition();
+            ((LevelArea) getWorld()).insertJelObjects();
+            ((LevelArea) getWorld()).engine=false;
+            ((LevelArea) getWorld()).build= true;
         }
     }    
 }

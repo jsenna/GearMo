@@ -68,16 +68,20 @@ public class edgeicon extends Actor
                         
                         if(lowest==10)
                         {
-                            System.out.println("Too far!");
+                            count--;
                         }
                         
                         //System.out.println("V1 " + V1.x + " " + V1.y + "V2 " + V2.x + " " + V2.y);
                         // System.out.println(((TheWorld) getWorld()).jellO.edges.size());
-                        ((LevelArea) getWorld()).jellO.edges.add(new Edge(((LevelArea) getWorld()).jellO.shapes.get(JJ).vertices[KK], ((LevelArea) getWorld()).jellO.shapes.get(JJ2).vertices[KK2]));
+                     
                         //System.out.println(((TheWorld) getWorld()).jellO.edges.size());
-                        
-                        tool=false;
-                        setImage("Rodoff.png");
+                        count++;
+                        if(count==2)
+                        {
+                            ((LevelArea) getWorld()).jellO.edges.add(new Edge(((LevelArea) getWorld()).jellO.shapes.get(JJ).vertices[KK], ((LevelArea) getWorld()).jellO.shapes.get(JJ2).vertices[KK2]));
+                            tool=false;
+                            setImage("Rodoff.png");
+                        }
                     }
                     if(count==0)
                     {
@@ -110,10 +114,13 @@ public class edgeicon extends Actor
                         //System.out.println("lowest: " + lowest);
                         if(lowest==10)
                         {
-                            System.out.println("Too far!");
+                            count--;
                         }
-                        setImage("Rodblue1.png");
                         count++;
+                        if(count==1)
+                        {
+                            setImage("Rodblue1.png");
+                        }
                     }
                 }
             }
