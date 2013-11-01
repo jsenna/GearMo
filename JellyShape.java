@@ -7,26 +7,26 @@ public abstract class JellyShape extends Actor {
     protected Edge[] edges;
     public double torque = 0;
     
-    public Edge world_edges[] = {new Edge(new Vertex(0,288),new Vertex(508,550)),
-                           new Edge(new Vertex(508,550),new Vertex(8070,550)),
-                           new Edge(new Vertex(807,550),new Vertex(936,477)),
-                           new Edge(new Vertex(936,477),new Vertex(1143,477))};
+    public Edge world_edges[] = {new Edge(new Vertex(0,266),new Vertex(354,452)),
+                           new Edge(new Vertex(354,452),new Vertex(559,452)),
+                           new Edge(new Vertex(559,452),new Vertex(649,369)),
+                           new Edge(new Vertex(649,369),new Vertex(797,369))};
     
-        public Edge world_edges2[] = {new Edge(new Vertex(0,115),new Vertex(1002,550)),
-                           new Edge(new Vertex(1002,550),new Vertex(1002,622)),
-                           new Edge(new Vertex(0,622),new Vertex(1002,622))};                       
+        public Edge world_edges2[] = {new Edge(new Vertex(0,93),new Vertex(696,93)),
+                           new Edge(new Vertex(696,93),new Vertex(696,490)),
+                           new Edge(new Vertex(696,490),new Vertex(0,490))};                       
         
-        public Edge world_edges3[] = {new Edge(new Vertex(0,255),new Vertex(238,255)),
-                           new Edge(new Vertex(238,255),new Vertex(358,379)),
-                           new Edge(new Vertex(358,379),new Vertex(472,255)),
-                           new Edge(new Vertex(472,255),new Vertex(583,379)),
-                           new Edge(new Vertex(583,379),new Vertex(693,255)),
-                           new Edge(new Vertex(693,255),new Vertex(799,379)), 
-                                                   new Edge(new Vertex(799,379),new Vertex(1008,429)),
-                           new Edge(new Vertex(1008,429),new Vertex(969,471)),
-                                                   new Edge(new Vertex(969,471),new Vertex(0,471)),
-                           new Edge(new Vertex(801,0),new Vertex(0,345)),
-                           new Edge(new Vertex(0,486),new Vertex(867,765)),
+        public Edge world_edges3[] = {new Edge(new Vertex(0,203),new Vertex(165,203)),
+                           new Edge(new Vertex(165,203),new Vertex(250,294)),
+                           new Edge(new Vertex(250,294),new Vertex(329,203)),
+                           new Edge(new Vertex(329,203),new Vertex(406,294)),
+                           new Edge(new Vertex(406,294),new Vertex(481,203)),
+                           new Edge(new Vertex(481,203),new Vertex(555,294)), 
+                                                   new Edge(new Vertex(559,294),new Vertex(700,337)),
+                           new Edge(new Vertex(700,337),new Vertex(673,366)),
+                                                   new Edge(new Vertex(673,366),new Vertex(0,366)),
+                           new Edge(new Vertex(555,0),new Vertex(0,266)),
+                           new Edge(new Vertex(0,593),new Vertex(867,382)),
                            };                       
                            
         public Edge plate_edges[] = {new Edge(new Vertex(460,251),new Vertex(610,251)),
