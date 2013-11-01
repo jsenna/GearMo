@@ -1,8 +1,8 @@
 import greenfoot.*;
 import java.awt.Color;
 public class TheWorld extends World {
-    public static final int WIDTH = 600;
-    public static final int HEIGHT = 400;
+    public static final int WIDTH = 1024;
+    public static final int HEIGHT = 768;
     private static int shapeCounter = 0;
     public int soundPlay = 0;
     public boolean engine=false;
@@ -35,13 +35,13 @@ public class TheWorld extends World {
         Smokestack smokestack = new Smokestack();
         addObject(smokestack, 332, 300);
         WorldBack1 worldback = new WorldBack1();
-        addObject(worldback,300,200);
+        addObject(worldback,WIDTH/2,HEIGHT/2);
         addObject(smokestack, 400, 300);
         PressureSwitch pressureswitch = new PressureSwitch();
-        addObject(pressureswitch, 541, 278);
-        pressureswitch.setLocation(549, 269);
+        addObject(pressureswitch, 1013, 571);
+        
 
-        pressureswitch.setLocation(537, 271);
+        pressureswitch.setLocation(913, 490);
         pSwitch = pressureswitch;
         TriRobot trirobot = new TriRobot();
         CBall cball= new CBall();
@@ -55,11 +55,11 @@ public class TheWorld extends World {
         addObject(trirobot, 338, 80);
         trirobot.setLocation(339, 77);
         trirobot.setLocation(362, 77);
-        addObject(cball,55,355);
-        addObject(ccball,200,355);
-        addObject(start, 525 ,25);
-        addObject(reset, 525, 60);
-        addObject(edgei, 350, 355);
+        addObject(cball,55,671);
+        addObject(ccball,200,671);
+        addObject(start, 925 ,25);
+        addObject(reset, 925, 60);
+        addObject(edgei, 350, 671);
     }
     public void act(){
        if(soundPlay == 0){

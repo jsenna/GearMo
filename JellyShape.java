@@ -7,16 +7,34 @@ public abstract class JellyShape extends Actor {
     protected Edge[] edges;
     public double torque = 0;
     
-    public Edge world_edges[] = {new Edge(new Vertex(0,150),new Vertex(270,290)),
-                           new Edge(new Vertex(270,290),new Vertex(420,290)),
-                           new Edge(new Vertex(420,290),new Vertex(485,250)),
-                           new Edge(new Vertex(485,250),new Vertex(600,250))};
+    public Edge world_edges[] = {new Edge(new Vertex(0,288),new Vertex(508,550)),
+                           new Edge(new Vertex(508,550),new Vertex(8070,550)),
+                           new Edge(new Vertex(807,550),new Vertex(936,477)),
+                           new Edge(new Vertex(936,477),new Vertex(1143,477))};
+    
+        public Edge world_edges2[] = {new Edge(new Vertex(0,115),new Vertex(1002,550)),
+                           new Edge(new Vertex(1002,550),new Vertex(1002,622)),
+                           new Edge(new Vertex(0,622),new Vertex(1002,622))};                       
+        
+        public Edge world_edges3[] = {new Edge(new Vertex(0,255),new Vertex(238,255)),
+                           new Edge(new Vertex(238,255),new Vertex(358,379)),
+                           new Edge(new Vertex(358,379),new Vertex(472,255)),
+                           new Edge(new Vertex(472,255),new Vertex(583,379)),
+                           new Edge(new Vertex(583,379),new Vertex(693,255)),
+                           new Edge(new Vertex(693,255),new Vertex(799,379)), 
+                                                   new Edge(new Vertex(799,379),new Vertex(1008,429)),
+                           new Edge(new Vertex(1008,429),new Vertex(969,471)),
+                                                   new Edge(new Vertex(969,471),new Vertex(0,471)),
+                           new Edge(new Vertex(801,0),new Vertex(0,345)),
+                           new Edge(new Vertex(0,486),new Vertex(867,765)),
+                           };                       
                            
         public Edge plate_edges[] = {new Edge(new Vertex(460,251),new Vertex(610,251)),
                            new Edge(new Vertex(610,251),new Vertex(610,291)),
                            new Edge(new Vertex(610,291),new Vertex(460,291)),
                            new Edge(new Vertex(460,291),new Vertex(460,251))};                       
     
+                           
     public void addedToWorld(World w) {
         setImage(img);
         
