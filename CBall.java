@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CBall extends Actor
 {
-    private int x= 55,y=355;
+    private int x= 55,y=500;
     public boolean reset;
     private Boolean drag=false;
     MouseInfo mouse=Greenfoot.getMouseInfo();
@@ -42,7 +42,7 @@ public class CBall extends Actor
             }
             if(reset==false)
             {
-                setLocation(55,355);
+                setLocation(55,500);
             }else
             {
                 setLocation(x,y);

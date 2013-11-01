@@ -53,8 +53,8 @@ public class TheWorld extends World {
         trirobot.setLocation(362, 77);
         addObject(cball,55,500);
         addObject(ccball,200,500);
-        addObject(start, 925 ,25);
-        addObject(reset, 925, 60);
+        addObject(start, 725 ,25);
+        addObject(reset, 725, 60);
         addObject(edgei, 350, 500);
     }
     public void act(){

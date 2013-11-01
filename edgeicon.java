@@ -126,6 +126,7 @@ public class edgeicon extends Actor
                 }
                 else{
                     tool=false;
+                    setImage("Rodoff.png");
                 }
             }
             if(tool==false)
