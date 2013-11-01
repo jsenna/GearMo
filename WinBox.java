@@ -15,12 +15,10 @@ public class WinBox extends Actor
     public int animate = 0;
     public int endX;
     public int endY;
-    public void WinBox(){
-      setImage("winBox.png");
-    }
     public void act() 
     {
-             super.act();
+        setImage("winBox.png");
+        super.act();
         if(animate == 0){
            animate = 1;
            endX = getX();

@@ -40,7 +40,7 @@ public class edgeicon extends Actor
                         saveendy=mouse.getY();
                         lowest=10;
                         
-                        System.out.println("end " + saveendx + " " + saveendy);
+                        //System.out.println("end " + saveendx + " " + saveendy);
                         
                          for(int j=0;j<((TheWorld) getWorld()).jellO.shapes.size();j++)
                         {
@@ -56,25 +56,25 @@ public class edgeicon extends Actor
                                     V2= ((TheWorld) getWorld()).jellO.shapes.get(j).vertices[k];
                                     JJ2=j;
                                     KK2=k;
-                                    System.out.println("New lowest " + V2.x + " " + V2.y);
+                                    //System.out.println("New lowest " + V2.x + " " + V2.y);
                                 }
-                                System.out.println("distance: " + dis);
+                                //System.out.println("distance: " + dis);
                                 //System.out.println(dis);
                                 //System.out.println(k+ " x: " + verX + " y: "+ verY);
                             }
                         }
                         
-                        System.out.println("lowest: " + lowest);
+                        //System.out.println("lowest: " + lowest);
                         
                         if(lowest==10)
                         {
                             System.out.println("Too far!");
                         }
                         
-                        System.out.println("V1 " + V1.x + " " + V1.y + "V2 " + V2.x + " " + V2.y);
-                        System.out.println(((TheWorld) getWorld()).jellO.edges.size());
-                       ((TheWorld) getWorld()).jellO.edges.add(new Edge(((TheWorld) getWorld()).jellO.shapes.get(JJ).vertices[KK], ((TheWorld) getWorld()).jellO.shapes.get(JJ2).vertices[KK2]));
-                       System.out.println(((TheWorld) getWorld()).jellO.edges.size());
+                        //System.out.println("V1 " + V1.x + " " + V1.y + "V2 " + V2.x + " " + V2.y);
+                        // System.out.println(((TheWorld) getWorld()).jellO.edges.size());
+                        ((TheWorld) getWorld()).jellO.edges.add(new Edge(((TheWorld) getWorld()).jellO.shapes.get(JJ).vertices[KK], ((TheWorld) getWorld()).jellO.shapes.get(JJ2).vertices[KK2]));
+                        //System.out.println(((TheWorld) getWorld()).jellO.edges.size());
                         
                         tool=false;
                         setImage("Rodoff.png");
@@ -85,7 +85,7 @@ public class edgeicon extends Actor
                         savestarty=mouse.getY();
                         lowest=10;
                         
-                        System.out.println("start " + savestartx + " " + savestarty);
+                        //System.out.println("start " + savestartx + " " + savestarty);
                         
                         for(int j=0;j<((TheWorld) getWorld()).jellO.shapes.size();j++)
                         {
@@ -102,12 +102,12 @@ public class edgeicon extends Actor
                                     JJ = j;
                                     KK = k;
                                 }
-                                System.out.println("distance: " + dis);
+                                //System.out.println("distance: " + dis);
                                 //System.out.println(dis);
                                 //System.out.println(k+ " x: " + verX + " y: "+ verY);
                             }
                         }
-                        System.out.println("lowest: " + lowest);
+                        //System.out.println("lowest: " + lowest);
                         if(lowest==10)
                         {
                             System.out.println("Too far!");
@@ -126,8 +126,11 @@ public class edgeicon extends Actor
                 }
                 else{
                     tool=false;
-                    setImage("Rodoff.png");
                 }
+            }
+            if(tool==false)
+            {
+                setImage("Rodoff.png");
             }
         }
     }

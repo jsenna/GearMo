@@ -35,7 +35,8 @@ public class CBall extends Actor
             if (Greenfoot.mouseClicked(this)) 
             {
                 drag=false;
-                ((TheWorld) getWorld()).jellO.addShape(new JellyWheel(25, -.20), x, y);
+                JellyWheel jel = new JellyWheel(25, .20);
+                ((TheWorld) getWorld()).jellO.addShape(jel, x, y);
                 setLocation(x,y);
                 reset=false;
             }

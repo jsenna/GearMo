@@ -28,10 +28,7 @@ public class TheWorld extends World {
     private void prepare()
     {
         Gearmoposition();
-        
-        jellO = new JellyObject();
-        jellO.shapes.add(jellyGearMo);
-        addObject(jellO, 0, 0);
+        insertJelObjects();
         Smokestack smokestack = new Smokestack();
         addObject(smokestack, 332, 300);
         WorldBack1 worldback = new WorldBack1();
@@ -45,7 +42,6 @@ public class TheWorld extends World {
         pSwitch = pressureswitch;
         TriRobot trirobot = new TriRobot();
         CBall cball= new CBall();
-        
         CCBall ccball= new CCBall();
 
         Start start= new Start();
@@ -88,6 +84,12 @@ public class TheWorld extends World {
       jellyGearMo = new JellyGearMo();
       addObject(gearmo, 100, 80);
       addObject(jellyGearMo, 100, 80);
+  }
+  public void insertJelObjects()
+  {
+      jellO = new JellyObject();
+      jellO.shapes.add(jellyGearMo);
+      addObject(jellO, 0, 0);
   }
 
 }

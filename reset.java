@@ -16,10 +16,13 @@ public class reset extends Actor
     {
         if(Greenfoot.mouseClicked(this))
         {
+            setImage("reset.png");
             getWorld().removeObjects(getWorld().getObjects(JellyWheel.class));
             getWorld().removeObjects(getWorld().getObjects(gearmo.class));
             getWorld().removeObjects(getWorld().getObjects(JellyGearMo.class));
+            getWorld().removeObjects(getWorld().getObjects(JellyObject.class));
             ((TheWorld) getWorld()).Gearmoposition();
+            ((TheWorld) getWorld()).insertJelObjects();
             ((TheWorld) getWorld()).engine=false;
             ((TheWorld) getWorld()).build= true;
         }
