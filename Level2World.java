@@ -23,7 +23,10 @@ public class Level2World extends LevelArea
      
      world_edges_U = new Edge[]{new Edge(new Vertex(0,404),new Vertex(543,404)),
                                     new Edge(new Vertex(543,404),new Vertex(663,273))}; 
-     world_edges_D = new Edge[]{new Edge(new Vertex(0,273),new Vertex(663,273))}; 
+     world_edges_D = new Edge[]{new Edge(new Vertex(0,273),new Vertex(663,273))};
+     
+     world_edges_U_Absoulte = new Edge[0];
+     world_edges_D_Absoulte = new Edge[0];
     }
     public void prepare(){
                 Gearmoposition();

@@ -1,5 +1,6 @@
 import greenfoot.*;
 import java.awt.Color;
+import java.util.*;
 public abstract class JellyShape extends Actor {
     private static final double ACCEL = 0.5;
     public GreenfootImage img = new GreenfootImage(TheWorld.WIDTH, TheWorld.HEIGHT);
@@ -83,7 +84,7 @@ public abstract class JellyShape extends Actor {
         
         for(int i = 0; i < vertices.length - 1; i++) {
             if(shouldMoveDown)  vertices[i].incVSpeed(ACCEL);
-            if(shouldMoveUp)    vertices[i].decVSpeed(ACCEL);
+            if(shouldMoveUp)    vertices[i].decVSpeed(ACCEL*1.5);
             if(shouldMoveRight) vertices[i].incHSpeed(ACCEL);
             if(shouldMoveLeft)  vertices[i].decHSpeed(ACCEL);
             
@@ -159,14 +160,49 @@ public abstract class JellyShape extends Actor {
             v.y = TheWorld.HEIGHT - 1;
             v.stop();
         }
+        Edge[] world_edges_U_Absoulte = ((LevelArea) getWorld()).world_edges_U_Absoulte;
+        Edge[] world_edges_D_Absoulte = ((LevelArea) getWorld()).world_edges_D_Absoulte;
+        for(int i = 0; i < world_edges_D_Absoulte.length; i++)
+        {
+            if( v.x > world_edges_D_Absoulte[i].first.x && v.x < world_edges_D_Absoulte[i].second.x)
+            {
+                double diffX = v.x - world_edges_D_Absoulte[i].first.x;
+                double diffEdge = world_edges_D_Absoulte[i].second.x - world_edges_D_Absoulte[i].first.x;
+                double yEdge = world_edges_D_Absoulte[i].first.y + (world_edges_D_Absoulte[i].second.y - world_edges_D_Absoulte[i].first.y)*(diffX/diffEdge);
+                if(v.y > yEdge)
+                {
+                    v.isCollidingWall = true;
+                    System.out.println("colldiing absolute " + yEdge);
+                    v.y = yEdge;
+                    v.stop();  
+                }
+            }
+        }
+        for(int i = 0; i < world_edges_U_Absoulte.length; i++)
+        {
+            if( v.x > world_edges_U_Absoulte[i].first.x && v.x < world_edges_U_Absoulte[i].second.x)
+            {
+                double diffX = v.x - world_edges_U_Absoulte[i].first.x;
+                double diffEdge = world_edges_U_Absoulte[i].second.x - world_edges_U_Absoulte[i].first.x;
+                double yEdge = world_edges_U_Absoulte[i].first.y + (world_edges_U_Absoulte[i].second.y - world_edges_U_Absoulte[i].first.y)*(diffX/diffEdge);
+                
+                if(v.y < yEdge)
+                {
+                    v.isCollidingWall = true;
+                    System.out.println("colldiing absolute " + yEdge);
+                    v.y = yEdge;
+                    v.stop();  
+                }
+            }
+        }
         
         if(!v.isCollidingWall)
         {
             Edge[] world_edges_U = ((LevelArea) getWorld()).world_edges_U;
             Edge[] world_edges_D = ((LevelArea) getWorld()).world_edges_D;
             
-            double uY = 100;
-            double dY = 100;
+            ArrayList<Double> uY = new ArrayList<Double>();
+            ArrayList<Double> dY = new ArrayList<Double>();
             boolean uE = false;
             boolean dE = false;
             
@@ -181,7 +217,8 @@ public abstract class JellyShape extends Actor {
                     if(v.y > yEdge)
                     {
                         v.isCollidingD = true;
-                        dY = yEdge;
+                        System.out.println("adding down " + yEdge);
+                        dY.add(yEdge);
                     }
                 }
             }
@@ -189,16 +226,16 @@ public abstract class JellyShape extends Actor {
             {
                 if( v.x > world_edges_U[i].first.x && v.x < world_edges_U[i].second.x)
                 {
-                    System.out.println("Down Collision!!");
                     uE = true;
                     double diffX = v.x - world_edges_U[i].first.x;
                     double diffEdge = world_edges_U[i].second.x - world_edges_U[i].first.x;
                     double yEdge = world_edges_U[i].first.y + (world_edges_U[i].second.y - world_edges_U[i].first.y)*(diffX/diffEdge);
-                    System.out.println(yEdge + " " + v.y);
+                    
                     if(v.y < yEdge)
                     {
                         v.isCollidingU = true;
-                        uY = yEdge;
+                        System.out.println("adding up " + yEdge);
+                        uY.add(yEdge);
                     }
                 }
             }
@@ -206,33 +243,57 @@ public abstract class JellyShape extends Actor {
             if(uE && dE)
             {
                 System.out.println("Two lines");
+                 
                 if(v.isCollidingD && v.isCollidingU)
                 {
                     System.out.println("actual collision");
-                    if(Math.abs(uY - v.y) < Math.abs(dY - v.y))
+                    double closest = uY.get(0);
+                    for(Double y : uY)
                     {
-                        System.out.println("up closer");
-                        v.y = uY;
-                        v.stop();
+                        System.out.println("checking uy: " + y + " closest: " + closest);
+                        if(Math.abs(v.y - y) < Math.abs(v.y - closest))
+                        {
+                            closest = y;
+                        }
                     }
-                    else
+                    for(Double y : dY)
                     {
-                        System.out.println("down closer");
-                        v.y = dY;
-                        v.stop();
+                        System.out.println("checking dy: " + y + " closest: " + closest);
+                        if(Math.abs(v.y - y) < Math.abs(v.y - closest))
+                        {
+                            closest = y;
+                        }
                     }
+                    v.y = closest;
+                    v.stop();    
                 }
             }
             else if(uE && v.isCollidingU)
             {
                 System.out.println("one line up");
-                v.y = uY;
+                double closest = uY.get(0);
+                for(Double y : uY)
+                {
+                    if(Math.abs(v.y - y) < Math.abs(v.y - closest))
+                    {
+                        closest = y;
+                    }
+                }
+                v.y = closest;
                 v.stop();
             }
             else if(dE && v.isCollidingD)
             {
                 System.out.println("one line down");
-                v.y = dY;
+                double closest = dY.get(0);
+                for(Double y : dY)
+                {
+                    if(Math.abs(v.y - y) < Math.abs(v.y - closest))
+                    {
+                        closest = y;
+                    }
+                }
+                v.y = closest;
                 v.stop();
             }
         }      

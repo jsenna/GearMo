@@ -27,6 +27,8 @@ public class LevelArea extends World
     public World nWorld;
     public Edge[] world_edges_U;
     public Edge[] world_edges_D;
+    public Edge[] world_edges_U_Absoulte;
+    public Edge[] world_edges_D_Absoulte;
     public int lvl;
     /**
      * Constructor for objects of class Level2World.

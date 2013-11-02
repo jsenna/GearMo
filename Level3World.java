@@ -22,9 +22,11 @@ public class Level3World extends LevelArea
        prepare();
         setPaintOrder(gearmo.class, Start.class, reset.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
              world_edges_U = new Edge[]{new Edge(new Vertex(0,450),new Vertex(394,491)),
-                                    new Edge(new Vertex(394,491),new Vertex(675,328)),
-                                new Edge(new Vertex(310,0),new Vertex(600,268))}; 
-     world_edges_D = new Edge[]{new Edge(new Vertex(0,328),new Vertex(675,328)),new Edge(new Vertex(344,600),new Vertex(795,800))}; 
+                                    new Edge(new Vertex(394,491),new Vertex(675,328))}; 
+     world_edges_D = new Edge[]{new Edge(new Vertex(0,328),new Vertex(675,328))};
+                                
+    world_edges_U_Absoulte = new Edge[]{ new Edge(new Vertex(310,0),new Vertex(800,268))};
+    world_edges_D_Absoulte = new Edge[]{new Edge(new Vertex(344,600),new Vertex(800,400))};
     }
     
        public void prepare(){

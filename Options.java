@@ -14,7 +14,7 @@ public class Options extends Button
      */
     public void act() 
     {
-        setImage("options.png");
+        setImage("Options.png");
         if(Greenfoot.mouseClicked(this)){
            //Musicbox mb = new Musicbox();
            //getWorld().addObject(mb,300,200);

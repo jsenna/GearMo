@@ -9,6 +9,9 @@ public class TheWorld extends LevelArea {
         lvl = 1;
         prepare();
         
+        world_edges_U_Absoulte = new Edge[0];
+        world_edges_D_Absoulte = new Edge[0];
+        
         world_edges_U = new Edge[0];
         world_edges_D = new Edge[]{new Edge(new Vertex(0,266),new Vertex(354,452)),
                            new Edge(new Vertex(354,452),new Vertex(559,452)),
