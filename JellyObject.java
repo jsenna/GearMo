@@ -111,7 +111,7 @@ public class JellyObject extends Actor
             double length = e.getLength() - Math.hypot(xDiff, yDiff);
             //if(Math.abs(length) > 50.0)
                 //length = 50 * Math.abs(length)/length;
-            length /= 10;
+            length /= 10 * e.stiffness;
             double angle = Math.atan2(yDiff, xDiff);
             double xvv = length * Math.cos(angle);
             double yvv = length * Math.sin(angle);

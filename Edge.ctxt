@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.params=first\ second
 comment0.target=Edge(Vertex,\ Vertex)
-comment1.params=
-comment1.target=Vertex\ getFirst()
+comment1.params=first\ second\ _stiffness
+comment1.target=Edge(Vertex,\ Vertex,\ double)
 comment2.params=
-comment2.target=Vertex\ getSecond()
+comment2.target=Vertex\ getFirst()
 comment3.params=
-comment3.target=double\ getLength()
-numComments=4
+comment3.target=Vertex\ getSecond()
+comment4.params=
+comment4.target=double\ getLength()
+numComments=5
