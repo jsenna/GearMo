@@ -14,6 +14,11 @@ public class Options extends Button
      */
     public void act() 
     {
-        setImage("Options.png");
+        setImage("options.png");
+        if(Greenfoot.mouseClicked(this)){
+           //Musicbox mb = new Musicbox();
+           //getWorld().addObject(mb,300,200);
+           //hb.setLocation(300,200);
+        }   
     }    
 }

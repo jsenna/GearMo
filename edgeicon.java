@@ -17,7 +17,9 @@ public class edgeicon extends Actor
     double verX, verY;
     double lowest;
     double save;
+    public int imageTimer = 20;
     Vertex V1, V2;
+    int img=0;
     int JJ,KK;
     int JJ2, KK2;
     double savestartx=0,savestarty=0, saveendx=0, saveendy=0;
@@ -117,10 +119,6 @@ public class edgeicon extends Actor
                             count--;
                         }
                         count++;
-                        if(count==1)
-                        {
-                            setImage("Rodblue1.png");
-                        }
                     }
                 }
             }
@@ -140,12 +138,53 @@ public class edgeicon extends Actor
             {
                 setImage("Rodoff.png");
             }
+            if(count==0 && tool==true)
+            {
+                   if(imageTimer > 0){
+                       imageTimer += -1;
+                   }
+                   if(imageTimer <= 0){
+                       imageTimer = 20;
+                       animateR();
+                    }
+            }
+            if(count==1)
+            {
+                   if(imageTimer > 0){
+                       imageTimer += -1;
+                   }
+                   if(imageTimer <= 0){
+                       imageTimer = 20;
+                       animateB();
+                    }
+            }
         }
     }
     
     private double calcDistance(double x1, double y1, double x2, double y2)
     {
         return Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2)); 
+    }    
+    
+    public void animateR(){
+       if(img == 1){
+        img = 0;
+        setImage("Rodred1.png");
+        }
+        else if(img == 0){
+        img = 1;
+        setImage("Rodred2.png");
+       }
     }
     
-} 
+    public void animateB(){
+       if(img == 1){
+           img = 0;
+           setImage("Rodblue1.png");
+        }
+        else if(img == 0){
+           img = 1;
+           setImage("Rodblue2.png");
+        }
+    }
+}

@@ -27,7 +27,7 @@ public class HelpButton extends Button
         else{
            setImage("helpButtonSmall.png");
         }
-               if(animate == 0){
+        if(animate == 0){
            animate = 1;
            endX = getX();
            endY = getY();

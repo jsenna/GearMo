@@ -25,9 +25,8 @@ public class Title extends Actor
     
     
     public Title(){
-            GreenfootImage image = new GreenfootImage(WIDTH, HEIGHT);
+       GreenfootImage image = new GreenfootImage(WIDTH, HEIGHT);
 
-        
         Font font = image.getFont();
         font = font.deriveFont(48.0f);
         image.setFont(font);
