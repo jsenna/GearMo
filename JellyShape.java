@@ -172,7 +172,7 @@ public abstract class JellyShape extends Actor {
                 if(v.y > yEdge)
                 {
                     v.isCollidingWall = true;
-                    System.out.println("colldiing absolute " + yEdge);
+                    //System.out.println("colldiing absolute " + yEdge);
                     v.y = yEdge;
                     v.stop();  
                 }
@@ -189,7 +189,7 @@ public abstract class JellyShape extends Actor {
                 if(v.y < yEdge)
                 {
                     v.isCollidingWall = true;
-                    System.out.println("colldiing absolute " + yEdge);
+                    //System.out.println("colldiing absolute " + yEdge);
                     v.y = yEdge;
                     v.stop();  
                 }
@@ -217,7 +217,7 @@ public abstract class JellyShape extends Actor {
                     if(v.y > yEdge)
                     {
                         v.isCollidingD = true;
-                        System.out.println("adding down " + yEdge);
+                        //System.out.println("adding down " + yEdge);
                         dY.add(yEdge);
                     }
                 }
@@ -234,7 +234,7 @@ public abstract class JellyShape extends Actor {
                     if(v.y < yEdge)
                     {
                         v.isCollidingU = true;
-                        System.out.println("adding up " + yEdge);
+                        //System.out.println("adding up " + yEdge);
                         uY.add(yEdge);
                     }
                 }
@@ -242,15 +242,15 @@ public abstract class JellyShape extends Actor {
             
             if(uE && dE)
             {
-                System.out.println("Two lines");
+                //System.out.println("Two lines");
                  
                 if(v.isCollidingD && v.isCollidingU)
                 {
-                    System.out.println("actual collision");
+                    //System.out.println("actual collision");
                     double closest = uY.get(0);
                     for(Double y : uY)
                     {
-                        System.out.println("checking uy: " + y + " closest: " + closest);
+                        //System.out.println("checking uy: " + y + " closest: " + closest);
                         if(Math.abs(v.y - y) < Math.abs(v.y - closest))
                         {
                             closest = y;
@@ -258,7 +258,7 @@ public abstract class JellyShape extends Actor {
                     }
                     for(Double y : dY)
                     {
-                        System.out.println("checking dy: " + y + " closest: " + closest);
+                        //System.out.println("checking dy: " + y + " closest: " + closest);
                         if(Math.abs(v.y - y) < Math.abs(v.y - closest))
                         {
                             closest = y;
@@ -270,7 +270,7 @@ public abstract class JellyShape extends Actor {
             }
             else if(uE && v.isCollidingU)
             {
-                System.out.println("one line up");
+                //System.out.println("one line up");
                 double closest = uY.get(0);
                 for(Double y : uY)
                 {
@@ -284,7 +284,7 @@ public abstract class JellyShape extends Actor {
             }
             else if(dE && v.isCollidingD)
             {
-                System.out.println("one line down");
+                //System.out.println("one line down");
                 double closest = dY.get(0);
                 for(Double y : dY)
                 {
