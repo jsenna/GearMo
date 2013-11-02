@@ -14,6 +14,6 @@ public class WorldBack2 extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+       this.setImage("lvl2.png");
     }    
 }

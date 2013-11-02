@@ -15,5 +15,6 @@ public class WorldBack5 extends Actor
     public void act() 
     {
         // Add your action code here.
+        setImage("leve1-3.png");
     }    
 }

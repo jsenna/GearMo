@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level3World extends LevelArea
 {
-
+ 
     /**
      * Constructor for objects of class Level3World.
      * 
