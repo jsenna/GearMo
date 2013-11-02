@@ -31,7 +31,7 @@ public class HelpButton extends Button
            animate = 1;
            endX = getX();
            endY = getY();
-           setLocation(650,getY());
+           setLocation(850,getY());
         }
         if(animate == 1 && getX() > endX){
            setLocation(getX() - 3,getY());
@@ -45,7 +45,7 @@ public class HelpButton extends Button
         }
         if(Greenfoot.mouseClicked(this)){
             HelpBox hb = new HelpBox();
-           getWorld().addObject(hb,300,200);
+           getWorld().addObject(hb,400,300);
            //hb.setLocation(300,200);
            
         }        
