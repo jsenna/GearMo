@@ -21,9 +21,9 @@ public class Level2World extends LevelArea
      prepare();
      setPaintOrder(gearmo.class, Start.class, reset.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
      
-     world_edges_U = new Edge[]{new Edge(new Vertex(696,93),new Vertex(690,490)),
-                                    new Edge(new Vertex(696,490),new Vertex(0,490))}; 
-     world_edges_D = new Edge[]{new Edge(new Vertex(0,93),new Vertex(696,93))}; 
+     world_edges_U = new Edge[]{new Edge(new Vertex(0,404),new Vertex(543,404)),
+                                    new Edge(new Vertex(543,404),new Vertex(663,273))}; 
+     world_edges_D = new Edge[]{new Edge(new Vertex(0,273),new Vertex(663,273))}; 
     }
     public void prepare(){
                 Gearmoposition();

@@ -20,6 +20,10 @@ public class Level3World extends LevelArea
        lvl = 3;
        prepare();
         setPaintOrder(gearmo.class, Start.class, reset.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
+             world_edges_U = new Edge[]{new Edge(new Vertex(0,450),new Vertex(394,491)),
+                                    new Edge(new Vertex(394,491),new Vertex(675,328)),
+                                new Edge(new Vertex(310,0),new Vertex(600,268))}; 
+     world_edges_D = new Edge[]{new Edge(new Vertex(0,328),new Vertex(675,328)),new Edge(new Vertex(344,600),new Vertex(795,800))}; 
     }
     
        public void prepare(){
