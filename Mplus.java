@@ -12,9 +12,13 @@ public class Mplus extends Actor
      * Act - do whatever the Mplus wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    public Mplus(){
+        setImage("mplus.png");
+    }
+    
     public void act() 
     {
-        setImage("mplus.png");
         if (Greenfoot.mouseClicked(this)) 
         {
             if(((TitleScreen) getWorld()).mv<100)
