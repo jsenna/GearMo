@@ -26,7 +26,7 @@ public class Level3World extends LevelArea
      world_edges_D = new Edge[]{new Edge(new Vertex(0,328),new Vertex(675,328))};
                                 
     world_edges_U_Absoulte = new Edge[]{ new Edge(new Vertex(310,0),new Vertex(800,268))};
-    world_edges_D_Absoulte = new Edge[]{new Edge(new Vertex(344,600),new Vertex(800,400))};
+    world_edges_D_Absoulte = new Edge[]{new Edge(new Vertex(350,600),new Vertex(800,423))};
     }
     
        public void prepare(){
