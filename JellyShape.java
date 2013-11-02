@@ -6,31 +6,7 @@ public abstract class JellyShape extends Actor {
     protected Vertex[] vertices;
     protected Edge[] edges;
     public double torque = 0;
-    public int lvl = 1;
-    
-    /*public Edge world_edges[] = {new Edge(new Vertex(0,266),new Vertex(354,452)),
-                           new Edge(new Vertex(354,452),new Vertex(559,452)),
-                           new Edge(new Vertex(559,452),new Vertex(649,369)),
-                           new Edge(new Vertex(649,369),new Vertex(797,369))};*/
-    
-        public Edge world_edges2[] = {new Edge(new Vertex(0,93),new Vertex(696,93)),
-                           new Edge(new Vertex(696,93),new Vertex(696,490)),
-                           new Edge(new Vertex(696,490),new Vertex(0,490))};                       
-        
-        public Edge world_edges3[] = {new Edge(new Vertex(0,203),new Vertex(165,203)),
-                           new Edge(new Vertex(165,203),new Vertex(250,294)),
-                           new Edge(new Vertex(250,294),new Vertex(329,203)),
-                           new Edge(new Vertex(329,203),new Vertex(406,294)),
-                           new Edge(new Vertex(406,294),new Vertex(481,203)),
-                           new Edge(new Vertex(481,203),new Vertex(555,294)), 
-                           new Edge(new Vertex(559,294),new Vertex(700,337)),
-                           new Edge(new Vertex(700,337),new Vertex(673,366)),
-                           new Edge(new Vertex(673,366),new Vertex(0,366)),
-                           new Edge(new Vertex(555,0),new Vertex(0,266)),
-                           new Edge(new Vertex(0,593),new Vertex(867,382)),
-                           };                       
-                           
-                      
+    public int lvl = 1;                     
     
                            
     public void addedToWorld(World w) {
@@ -161,57 +137,105 @@ public abstract class JellyShape extends Actor {
     }
     
     public void checkWallCollisions(Vertex v) {
+        v.isCollidingWall = false;
+        v.isCollidingU = false;
+        v.isCollidingD = false;
+        
         if(v.x < 0) {
-            v.isColliding = true;
+            v.isCollidingWall = true;
             v.x = 0;
             v.stop();
         } else if(v.x >= TheWorld.WIDTH) {
-            v.isColliding = true;
+            v.isCollidingWall = true;
             v.x = TheWorld.WIDTH - 1;
             v.stop();
         }
         if(v.y < 0) {
-            v.isColliding = true;
+            v.isCollidingWall = true;
             v.y = 0;
             v.stop();
         } else if(v.y >= TheWorld.HEIGHT) {
-            v.isColliding = true;
+            v.isCollidingWall = true;
             v.y = TheWorld.HEIGHT - 1;
             v.stop();
         }
-        Edge[] world_edges_U = ((LevelArea) getWorld()).world_edges_U;
-        Edge[] world_edges_D = ((LevelArea) getWorld()).world_edges_D;
         
-        for(int i = 0; i < world_edges_D.length; i++)
+        if(!v.isCollidingWall)
         {
-            if( v.x > world_edges_D[i].first.x && v.x < world_edges_D[i].second.x)
+            Edge[] world_edges_U = ((LevelArea) getWorld()).world_edges_U;
+            Edge[] world_edges_D = ((LevelArea) getWorld()).world_edges_D;
+            
+            double uY = 100;
+            double dY = 100;
+            boolean uE = false;
+            boolean dE = false;
+            
+            for(int i = 0; i < world_edges_D.length; i++)
             {
-                double diffX = v.x - world_edges_D[i].first.x;
-                double diffEdge = world_edges_D[i].second.x - world_edges_D[i].first.x;
-                double yEdge = world_edges_D[i].first.y + (world_edges_D[i].second.y - world_edges_D[i].first.y)*(diffX/diffEdge);
-                if(v.y > yEdge)
+                if( v.x > world_edges_D[i].first.x && v.x < world_edges_D[i].second.x)
                 {
-                    v.isColliding = true;
-                    v.y = yEdge;
-                    v.stop();
+                    dE = true;
+                    double diffX = v.x - world_edges_D[i].first.x;
+                    double diffEdge = world_edges_D[i].second.x - world_edges_D[i].first.x;
+                    double yEdge = world_edges_D[i].first.y + (world_edges_D[i].second.y - world_edges_D[i].first.y)*(diffX/diffEdge);
+                    if(v.y > yEdge)
+                    {
+                        v.isCollidingD = true;
+                        dY = yEdge;
+                    }
                 }
             }
-        }
-        for(int i = 0; i < world_edges_U.length; i++)
-        {
-            if( v.x > world_edges_U[i].first.x && v.x < world_edges_U[i].second.x)
+            for(int i = 0; i < world_edges_U.length; i++)
             {
-                double diffX = v.x - world_edges_U[i].first.x;
-                double diffEdge = world_edges_U[i].second.x - world_edges_U[i].first.x;
-                double yEdge = world_edges_U[i].first.y + (world_edges_U[i].second.y - world_edges_U[i].first.y)*(diffX/diffEdge);
-                if(v.y < yEdge)
+                if( v.x > world_edges_U[i].first.x && v.x < world_edges_U[i].second.x)
                 {
-                    v.isColliding = true;
-                    v.y = yEdge;
-                    v.stop();
+                    System.out.println("Down Collision!!");
+                    uE = true;
+                    double diffX = v.x - world_edges_U[i].first.x;
+                    double diffEdge = world_edges_U[i].second.x - world_edges_U[i].first.x;
+                    double yEdge = world_edges_U[i].first.y + (world_edges_U[i].second.y - world_edges_U[i].first.y)*(diffX/diffEdge);
+                    System.out.println(yEdge + " " + v.y);
+                    if(v.y < yEdge)
+                    {
+                        v.isCollidingU = true;
+                        uY = yEdge;
+                    }
                 }
             }
-        }        
+            
+            if(uE && dE)
+            {
+                System.out.println("Two lines");
+                if(v.isCollidingD && v.isCollidingU)
+                {
+                    System.out.println("actual collision");
+                    if(Math.abs(uY - v.y) < Math.abs(dY - v.y))
+                    {
+                        System.out.println("up closer");
+                        v.y = uY;
+                        v.stop();
+                    }
+                    else
+                    {
+                        System.out.println("down closer");
+                        v.y = dY;
+                        v.stop();
+                    }
+                }
+            }
+            else if(uE && v.isCollidingU)
+            {
+                System.out.println("one line up");
+                v.y = uY;
+                v.stop();
+            }
+            else if(dE && v.isCollidingD)
+            {
+                System.out.println("one line down");
+                v.y = dY;
+                v.stop();
+            }
+        }      
     }
     
     /**d

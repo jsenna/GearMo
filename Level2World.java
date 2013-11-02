@@ -49,7 +49,7 @@ public class Level2World extends LevelArea
   {
       gearmo = new gearmo();
       jellyGearMo = new JellyGearMo();
-      addObject(gearmo, 100, 80);
+      addObject(gearmo, 100, 80);   
       addObject(jellyGearMo, 100, 80);
   }
   public void insertJelObjects()

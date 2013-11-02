@@ -29,10 +29,10 @@ public class TheWorld extends LevelArea {
         addObject(worldback,WIDTH/2,HEIGHT/2);
         addObject(smokestack, 400, 300);
         PressureSwitch pressureswitch = new PressureSwitch();
-        addObject(pressureswitch, 760, 571);
+        addObject(pressureswitch, 660, 571);
         
 
-        pressureswitch.setLocation(913, 490);
+        //pressureswitch.setLocation(913, 490);
         pSwitch = pressureswitch;
         TriRobot trirobot = new TriRobot();
         addObject(trirobot, 338, 80);

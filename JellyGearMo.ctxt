@@ -3,6 +3,4 @@ comment0.params=
 comment0.target=JellyGearMo()
 comment1.params=
 comment1.target=void\ act()
-comment2.params=
-comment2.target=void\ updateImage()
-numComments=3
+numComments=2
