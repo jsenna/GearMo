@@ -36,6 +36,24 @@ public class gearmo extends AnimatedActor
             //Play sound here
             animate = 3;
         }
-    }
+        }
+        if (Greenfoot.mouseClicked(this)) 
+        {
+            int ran= Greenfoot.getRandomNumber(6);
+            if(ran==0)
+            Greenfoot.playSound("yippee.mp3");
+            if(ran==1)
+            Greenfoot.playSound("woo.mp3");
+            if(ran==2)
+            Greenfoot.playSound("yippee.mp3");
+            if(ran==3)
+            Greenfoot.playSound("hello.mp3");
+            if(ran==4)
+            Greenfoot.playSound("ohno.mp3");
+            if(ran==5)
+            Greenfoot.playSound("oof.mp3");
+            if(ran==6)
+            Greenfoot.playSound("ouch.mp3");
+        }
     }
 }
