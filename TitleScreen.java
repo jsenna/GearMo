@@ -72,7 +72,11 @@ public class TitleScreen extends World
         
         
        Options option= new Options();
-       addObject(option, 520, 50);
+       addObject(option, 480, 50);
+       Mplus mp= new Mplus();
+       addObject(mp,546,50);
+       Mminus mm= new Mminus();
+       addObject(mm,414,50);
         
     }
     

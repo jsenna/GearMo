@@ -12,13 +12,39 @@ public class Options extends Button
      * Act - do whatever the Options wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
-    {
-        setImage("Options.png");
-        if(Greenfoot.mouseClicked(this)){
-           //Musicbox mb = new Musicbox();
-           //getWorld().addObject(mb,300,200);
-           //hb.setLocation(300,200);
-        }   
-    }    
+        boolean toggle=true;
+        boolean mc=false;
+        public void act() 
+        {
+            if(mc==false);
+            {
+                setImage("Options.png");
+            }
+            if (Greenfoot.mouseClicked(this)) 
+            {
+                mc=true;
+                if(toggle==false)
+                {
+                    toggle(true);
+                }
+                if(toggle==true)
+                {
+                    toggle(false);
+                }
+            }
+        }    
+        
+        public void toggle(boolean b)
+        {
+            if(b==false)
+            {
+                toggle=true;
+                ((TitleScreen) getWorld()).music.setVolume(0);
+            }
+            if(b==true)
+            {
+                toggle=false;
+                ((TitleScreen) getWorld()).music.setVolume(50);
+            }
+        }
 }
