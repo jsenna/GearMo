@@ -15,6 +15,8 @@ public class Level2World extends LevelArea
      */
     public Level2World()
     {      
+        music = new GreenfootSound("Rolemusic_-_01_-_A_ninja_among_culturachippers.mp3");
+        music.setVolume(50);
      setBackground("7845.png");   
      prepareInterface();
      lvl = 2;

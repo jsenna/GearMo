@@ -14,7 +14,9 @@ public class Level3World extends LevelArea
      * 
      */
     public Level3World()
-    {    
+    {
+        music = new GreenfootSound("Rolemusic_-_02_-_ayVentura.mp3");
+        music.setVolume(50);
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         setBackground("658_max.png");
        prepareInterface();
