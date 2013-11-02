@@ -12,14 +12,16 @@ public class Mminus extends Actor
      * Act - do whatever the Mminus wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int j = 50;
     public void act() 
     {
             setImage("mminus.png");
             if (Greenfoot.mouseClicked(this)) 
             {
-                j+= -10;
-                ((TitleScreen) getWorld()).music.setVolume(j);
+                if(((TitleScreen) getWorld()).mv>0)
+                {
+                    ((TitleScreen) getWorld()).mv+= -10;
+                    ((TitleScreen) getWorld()).music.setVolume(((TitleScreen) getWorld()).mv);
+                }
             }
     }    
 }

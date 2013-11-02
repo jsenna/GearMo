@@ -14,6 +14,7 @@ public class TitleScreen extends World
      * 
      */
     public int soundPlay = 0;
+    public int mv=50;
     public GreenfootSound music;
     public GreenfootSound voice;
     public TitleScreen()
@@ -33,6 +34,7 @@ public class TitleScreen extends World
     {
         music = new GreenfootSound("Rolemusic_-_Savage_Steel_Fun_Club.mp3");
         voice = new GreenfootSound("gearmo.mp3");
+        music.setVolume(mv);
         Title title = new Title();
         addObject(title, 85, 71);
         title.setLocation(341, 176);

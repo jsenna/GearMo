@@ -13,22 +13,23 @@ public class Options extends Button
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
         boolean toggle=true;
-        boolean mc=false;
+        
+        public Options()
+        {
+            setImage("Options.png");
+        }
         public void act() 
         {
-            if(mc==false);
-            {
-                setImage("Options.png");
-            }
             if (Greenfoot.mouseClicked(this)) 
             {
-                mc=true;
                 if(toggle==false)
                 {
+                    toggle=false;
                     toggle(true);
                 }
                 if(toggle==true)
                 {
+                    toggle=true;
                     toggle(false);
                 }
             }
@@ -38,13 +39,12 @@ public class Options extends Button
         {
             if(b==false)
             {
-                toggle=true;
                 ((TitleScreen) getWorld()).music.setVolume(0);
             }
             if(b==true)
             {
-                toggle=false;
-                ((TitleScreen) getWorld()).music.setVolume(50);
+                System.out.println("hi");
+                ((TitleScreen) getWorld()).music.setVolume(((TitleScreen) getWorld()).mv);
             }
         }
 }

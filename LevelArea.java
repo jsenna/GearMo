@@ -36,11 +36,12 @@ public class LevelArea extends World
      */
     public LevelArea()
     {    
-    super(WIDTH, HEIGHT, 1);
-    music = new GreenfootSound("Rolemusic_-_04_-_Scape_from_the_city.mp3");
+        super(WIDTH, HEIGHT, 1);
+        music = new GreenfootSound("Rolemusic_-_04_-_Scape_from_the_city.mp3");
+        music.setVolume(50);
     }
     public void prepareInterface(){
-            CBall cball= new CBall();
+        CBall cball= new CBall();
         CCBall ccball= new CCBall();
 
         Start start= new Start();
@@ -83,4 +84,5 @@ public class LevelArea extends World
       jellO.shapes.add(jellyGearMo);
       addObject(jellO, 0, 0);
   }
+  
 }
