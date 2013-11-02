@@ -17,7 +17,7 @@ public class PressureSwitch extends Switchable
       
         if(((LevelArea)getWorld()).lvl == 3 && ((LevelArea)getWorld()).gearmo.getX() <= this.getX() && ((LevelArea)getWorld()).gearmo.getY() <= this.getY()  ){
            setImage("switchOn.png");
-           
+           ((LevelArea)getWorld()).music.stop();
         ((LevelArea)getWorld()).nextWorld();
        //Greenfoot.setWorld(new WinScreen());
        }      
@@ -25,7 +25,7 @@ public class PressureSwitch extends Switchable
         
        if(((LevelArea)getWorld()).lvl == 2 && ((LevelArea)getWorld()).gearmo.getX() <= this.getX() && ((LevelArea)getWorld()).gearmo.getY() >= this.getY()  ){
            setImage("switchOn.png");
-           
+           ((LevelArea)getWorld()).music.stop();
         ((LevelArea)getWorld()).nextWorld();
        //Greenfoot.setWorld(new WinScreen());
        }
@@ -33,7 +33,7 @@ public class PressureSwitch extends Switchable
        
        if(((LevelArea)getWorld()).lvl == 1 && ((LevelArea)getWorld()).gearmo.getX() >= this.getX() ){
            setImage("switchOn.png");
-           
+           ((LevelArea)getWorld()).music.stop();
         ((LevelArea)getWorld()).nextWorld();
        //Greenfoot.setWorld(new WinScreen());
        }

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level2World extends LevelArea
 {
-   
+    TriRobot trirobot;
     /**
      * Constructor for objects of class Level2World.
      * 
@@ -31,23 +31,22 @@ public class Level2World extends LevelArea
     public void prepare(){
                 Gearmoposition();
         insertJelObjects();
-        Smokestack smokestack = new Smokestack();
-        addObject(smokestack, 332, 300);
         WorldBack2 worldback = new WorldBack2();
         addObject(worldback,WIDTH/2,HEIGHT/2);
-        addObject(smokestack, 400, 300);
         PressureSwitch pressureswitch = new PressureSwitch();
         addObject(pressureswitch, 1013, 571);
         
         edgeicon edgei=new edgeicon();
         addObject(edgei, 350, 330);
-
-        pressureswitch.setLocation(913, 490);
+   
+        pressureswitch.setLocation(140, 560);
         pSwitch = pressureswitch;
-        TriRobot trirobot = new TriRobot();
-        addObject(trirobot, 338, 80);
-        trirobot.setLocation(339, 77);
-        trirobot.setLocation(362, 77);
+        trirobot = new TriRobot();
+        addObject(trirobot, 338, 240);
+        addObject(trirobot, 368, 240);
+        addObject(trirobot, 400, 240);
+
+        
         nWorld = new Level3World();
     }
       public void Gearmoposition()
