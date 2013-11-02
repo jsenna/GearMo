@@ -20,7 +20,7 @@ public class TitleScreen extends World
     public TitleScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(800, 600, 1); 
 
         prepare();
         //Greenfoot.playSound("Rolemusic_-_Savage_Steel_Fun_Club.mp3");
@@ -58,7 +58,7 @@ public class TitleScreen extends World
         addObject(titlegear, 300, 200);
         titlegear.setLocation(303, 198);
         gearmo gm= new gearmo();
-        addObject(gm, 300,200);
+        addObject(gm, 400,300);
         Title title2 = new Title();
         addObject(title2, 252, 79);
         title2.setLocation(346, 141);
@@ -70,16 +70,21 @@ public class TitleScreen extends World
         titlebutton2.setLocation(149, 291);
         helpbutton2.setLocation(449, 291);
         titlegear.setLocation(300, 243);
-        titlegear.setLocation(300, 200);
-        
-        
-       Options option= new Options();
-       addObject(option, 480, 50);
-       Mplus mp= new Mplus();
-       addObject(mp,546,50);
-       Mminus mm= new Mminus();
-       addObject(mm,414,50);
-        
+        titlegear.setLocation(400, 300);
+
+        Options option= new Options();
+        addObject(option, 480, 50);
+        Mplus mp= new Mplus();
+        addObject(mp,546,50);
+        Mminus mm= new Mminus();
+        addObject(mm,414,50);
+
+        helpbutton2.setLocation(652, 415);
+        titlebutton2.setLocation(147, 414);
+        mp.setLocation(764, 40);
+        option.setLocation(707, 45);
+        mm.setLocation(638, 46);
+        title2.setLocation(449, 182);
     }
     
     public void started(){
