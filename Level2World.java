@@ -15,7 +15,7 @@ public class Level2World extends LevelArea
      */
     public Level2World()
     {    
-        
+     setBackground("7845.png");   
      prepareInterface();
      lvl = 2;
      prepare();
