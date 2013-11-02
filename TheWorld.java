@@ -36,7 +36,7 @@ public class TheWorld extends LevelArea {
         addObject(worldback,WIDTH/2,HEIGHT/2);
         addObject(smokestack, 400, 300);
         PressureSwitch pressureswitch = new PressureSwitch();
-        addObject(pressureswitch, 660, 571);
+        addObject(pressureswitch, 720, 400);
         
         edgeicon edgei=new edgeicon();
         addObject(edgei, 350, 500);
@@ -75,8 +75,8 @@ public class TheWorld extends LevelArea {
   {
       gearmo = new gearmo();
       jellyGearMo = new JellyGearMo();
-      addObject(gearmo, 100, 80);
-      addObject(jellyGearMo, 100, 80);
+      addObject(gearmo, 100, 120);
+      addObject(jellyGearMo, 100, 120);
   }
   public void insertJelObjects()
   {

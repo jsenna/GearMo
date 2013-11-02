@@ -80,7 +80,8 @@ public class edgeicon extends Actor
                         count++;
                         if(count==2)
                         {
-                            ((LevelArea) getWorld()).jellO.edges.add(new Edge(((LevelArea) getWorld()).jellO.shapes.get(JJ).vertices[KK], ((LevelArea) getWorld()).jellO.shapes.get(JJ2).vertices[KK2], 5.0));
+                            for(int i = 0; i < 3; i++)
+                                ((LevelArea) getWorld()).jellO.edges.add(new Edge(((LevelArea) getWorld()).jellO.shapes.get(JJ).vertices[KK], ((LevelArea) getWorld()).jellO.shapes.get(JJ2).vertices[KK2], 1.0));
                             tool=false;
                             setImage("Rodoff.png");
                         }

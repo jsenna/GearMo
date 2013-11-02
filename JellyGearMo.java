@@ -54,5 +54,5 @@ public class JellyGearMo extends JellyShape
     
      public void updateImage() {
          return;
-    }    
+    }
 }

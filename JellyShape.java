@@ -7,7 +7,7 @@ public abstract class JellyShape extends Actor {
     protected Vertex[] vertices;
     protected Edge[] edges;
     public double torque = 0;
-    public int lvl = 1;                     
+    public int lvl = 1;
     
                            
     public void addedToWorld(World w) {
@@ -73,6 +73,7 @@ public abstract class JellyShape extends Actor {
     }
     
     private void processMovement() {
+        /*
         // We use the WASD keys for movement.
         boolean shouldMoveUp    = Greenfoot.isKeyDown("w");
         boolean shouldMoveLeft  = Greenfoot.isKeyDown("a");
@@ -80,13 +81,13 @@ public abstract class JellyShape extends Actor {
         boolean shouldMoveRight = Greenfoot.isKeyDown("d");
         
         boolean shouldSpinRight    = Greenfoot.isKeyDown("right");
-        boolean shouldSpinLeft  = Greenfoot.isKeyDown("left");
+        boolean shouldSpinLeft  = Greenfoot.isKeyDown("left");*/
         
-        for(int i = 0; i < vertices.length - 1; i++) {
+        for(int i = 0; i < vertices.length - 1; i++) {/*
             if(shouldMoveDown)  vertices[i].incVSpeed(ACCEL);
             if(shouldMoveUp)    vertices[i].decVSpeed(ACCEL*1.5);
             if(shouldMoveRight) vertices[i].incHSpeed(ACCEL);
-            if(shouldMoveLeft)  vertices[i].decHSpeed(ACCEL);
+            if(shouldMoveLeft)  vertices[i].decHSpeed(ACCEL);*/
             
             
             double xDiff = vertices[i].getX() - vertices[((i+1)%(vertices.length - 1))].getX();
@@ -94,14 +95,14 @@ public abstract class JellyShape extends Actor {
             double angle = Math.atan2(yDiff, xDiff);
             double _torque = torque;
             
-            if(shouldSpinRight)
+            /*if(shouldSpinRight)
             {
                 _torque = -.25;
             }
             if(shouldSpinLeft)
             {
                 _torque = .25;
-            }
+            }*/
             
             vertices[i].incVSpeed(_torque * Math.sin(angle));
             vertices[i].incHSpeed(_torque * Math.cos(angle));
@@ -109,7 +110,7 @@ public abstract class JellyShape extends Actor {
     
     }
     
-    private void processPhysics() {
+    public void processPhysics() {
         for(Edge e : edges) {
             Vertex first  = e.getFirst();
             Vertex second = e.getSecond();
@@ -130,7 +131,7 @@ public abstract class JellyShape extends Actor {
         }
         
         for(Vertex v : vertices) {
-            v.incVSpeed(ACCEL*0.9); //gravity
+            v.incVSpeed(ACCEL*0.9*((LevelArea)getWorld()).gravity); //gravity
             v.slow();
             v.move();
             checkWallCollisions(v);

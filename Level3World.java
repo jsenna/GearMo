@@ -41,6 +41,9 @@ public class Level3World extends LevelArea
         PressureSwitch pressureswitch = new PressureSwitch();
         addObject(pressureswitch, 1013, 571);
         
+        gravityswitch = new gravitySwitch();
+        addObject(gravityswitch, 750, 400);
+        
         edgeicon edgei=new edgeicon();
         addObject(edgei, 350, 370);
         
@@ -53,8 +56,8 @@ public class Level3World extends LevelArea
   {
       gearmo = new gearmo();
       jellyGearMo = new JellyGearMo();
-      addObject(gearmo, 100, 550);
-      addObject(jellyGearMo, 100, 550);
+      addObject(gearmo, 110, 560);
+      addObject(jellyGearMo, 110, 560);
   }
   public void insertJelObjects()
   {

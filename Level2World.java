@@ -43,7 +43,7 @@ public class Level2World extends LevelArea
         edgeicon edgei=new edgeicon();
         addObject(edgei, 350, 330);
    
-        pressureswitch.setLocation(140, 560);
+        pressureswitch.setLocation(100, 500);
         pSwitch = pressureswitch;
         trirobot = new TriRobot();
         addObject(trirobot, 338, 240);
@@ -57,8 +57,8 @@ public class Level2World extends LevelArea
   {
       gearmo = new gearmo();
       jellyGearMo = new JellyGearMo();
-      addObject(gearmo, 100, 80);   
-      addObject(jellyGearMo, 100, 80);
+      addObject(gearmo, 130, 130);   
+      addObject(jellyGearMo, 130, 130);
   }
   public void insertJelObjects()
   {

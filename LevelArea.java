@@ -24,12 +24,14 @@ public class LevelArea extends World
     public JellyObject jellO;
     public GreenfootSound music;
     public PressureSwitch pSwitch;
+    gravitySwitch gravityswitch;
     public World nWorld;
     public Edge[] world_edges_U;
     public Edge[] world_edges_D;
     public Edge[] world_edges_U_Absoulte;
     public Edge[] world_edges_D_Absoulte;
     public int lvl;
+    double gravity = 1;
     /**
      * Constructor for objects of class Level2World.
      * 

@@ -25,6 +25,10 @@ public class reset extends Actor
             ((LevelArea) getWorld()).insertJelObjects();
             ((LevelArea) getWorld()).engine=false;
             ((LevelArea) getWorld()).build= true;
+            if(((LevelArea) getWorld()).lvl == 3)
+            {
+                ((LevelArea) getWorld()).gravityswitch.resetGravity();
+            }
         }
     }    
 }

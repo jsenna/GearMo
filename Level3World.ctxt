@@ -1,7 +1,6 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Level3World()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Level3World.\r\n\ \r\n
+comment0.params=v
+comment0.target=Level3World(int)
 comment1.params=
 comment1.target=void\ prepare()
 comment2.params=
