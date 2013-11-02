@@ -46,14 +46,13 @@ public class LevelArea extends World
 
         Start start= new Start();
         reset reset= new reset();
-        edgeicon edgei=new edgeicon();
-        
         
         addObject(cball,55,500);
         addObject(ccball,200,500);
         addObject(start, 720 ,25);
         addObject(reset, 720, 60);
-        addObject(edgei, 350, 500);
+        
+        
     }
         public void act(){
        if(soundPlay == 0){

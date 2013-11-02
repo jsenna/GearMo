@@ -34,6 +34,9 @@ public class TheWorld extends LevelArea {
         PressureSwitch pressureswitch = new PressureSwitch();
         addObject(pressureswitch, 660, 571);
         
+        edgeicon edgei=new edgeicon();
+        addObject(edgei, 350, 500);
+        
 
         //pressureswitch.setLocation(913, 490);
         pSwitch = pressureswitch;

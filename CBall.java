@@ -42,7 +42,18 @@ public class CBall extends Actor
             }
             if(reset==false)
             {
-                setLocation(55,500);
+                if (this.getWorld().getClass() == TheWorld.class) 
+                {  
+                    setLocation(55,500);
+                } 
+                if (this.getWorld().getClass() == Level2World.class) 
+                {  
+                    setLocation(55,330);
+                } 
+                if (this.getWorld().getClass() == Level3World.class) 
+                {  
+                    setLocation(55,370);
+                } 
             }else
             {
                 setLocation(x,y);

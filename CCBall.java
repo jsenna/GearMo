@@ -42,7 +42,18 @@ public class CCBall extends Actor
             }
             if(reset==false)
             {
-                setLocation(200,500);
+                if (this.getWorld().getClass() == TheWorld.class) 
+                {  
+                    setLocation(200,500);
+                } 
+                if (this.getWorld().getClass() == Level2World.class) 
+                {  
+                    setLocation(200,330);
+                } 
+                if (this.getWorld().getClass() == Level3World.class) 
+                {  
+                    setLocation(200,370);
+                }
             }else
             {
                 setLocation(x,y);

@@ -37,7 +37,9 @@ public class Level3World extends LevelArea
         PressureSwitch pressureswitch = new PressureSwitch();
         addObject(pressureswitch, 1013, 571);
         
-
+        edgeicon edgei=new edgeicon();
+        addObject(edgei, 350, 370);
+        
         pressureswitch.setLocation(150, 300);
         pSwitch = pressureswitch;
    
