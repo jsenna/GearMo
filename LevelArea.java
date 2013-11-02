@@ -25,6 +25,8 @@ public class LevelArea extends World
     public GreenfootSound music;
     public PressureSwitch pSwitch;
     public World nWorld;
+    public Edge[] world_edges_U;
+    public Edge[] world_edges_D;
     /**
      * Constructor for objects of class Level2World.
      * 

@@ -7,7 +7,11 @@ public class TheWorld extends LevelArea {
        
         prepareInterface();
         prepare();
-        
+        world_edges_U = new Edge[0];
+        world_edges_D = new Edge[]{new Edge(new Vertex(0,266),new Vertex(354,452)),
+                           new Edge(new Vertex(354,452),new Vertex(559,452)),
+                           new Edge(new Vertex(559,452),new Vertex(649,369)),
+                           new Edge(new Vertex(649,369),new Vertex(797,369))};
         
         setPaintOrder(gearmo.class, Start.class, reset.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
         

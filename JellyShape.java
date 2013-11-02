@@ -8,10 +8,10 @@ public abstract class JellyShape extends Actor {
     public double torque = 0;
     public int lvl = 1;
     
-    public Edge world_edges[] = {new Edge(new Vertex(0,266),new Vertex(354,452)),
+    /*public Edge world_edges[] = {new Edge(new Vertex(0,266),new Vertex(354,452)),
                            new Edge(new Vertex(354,452),new Vertex(559,452)),
                            new Edge(new Vertex(559,452),new Vertex(649,369)),
-                           new Edge(new Vertex(649,369),new Vertex(797,369))};
+                           new Edge(new Vertex(649,369),new Vertex(797,369))};*/
     
         public Edge world_edges2[] = {new Edge(new Vertex(0,93),new Vertex(696,93)),
                            new Edge(new Vertex(696,93),new Vertex(696,490)),
@@ -23,9 +23,9 @@ public abstract class JellyShape extends Actor {
                            new Edge(new Vertex(329,203),new Vertex(406,294)),
                            new Edge(new Vertex(406,294),new Vertex(481,203)),
                            new Edge(new Vertex(481,203),new Vertex(555,294)), 
-                                                   new Edge(new Vertex(559,294),new Vertex(700,337)),
+                           new Edge(new Vertex(559,294),new Vertex(700,337)),
                            new Edge(new Vertex(700,337),new Vertex(673,366)),
-                                                   new Edge(new Vertex(673,366),new Vertex(0,366)),
+                           new Edge(new Vertex(673,366),new Vertex(0,366)),
                            new Edge(new Vertex(555,0),new Vertex(0,266)),
                            new Edge(new Vertex(0,593),new Vertex(867,382)),
                            };                       
@@ -182,15 +182,16 @@ public abstract class JellyShape extends Actor {
             v.y = TheWorld.HEIGHT - 1;
             v.stop();
         }
+        Edge[] world_edges_U = ((LevelArea) getWorld()).world_edges_U;
+        Edge[] world_edges_D = ((LevelArea) getWorld()).world_edges_D;
         
-        if(lvl == 1){
-        for(int i = 0; i < world_edges.length; i++)
+        for(int i = 0; i < world_edges_D.length; i++)
         {
-            if( v.x > world_edges[i].first.x && v.x < world_edges[i].second.x)
+            if( v.x > world_edges_D[i].first.x && v.x < world_edges_D[i].second.x)
             {
-                double diffX = v.x - world_edges[i].first.x;
-                double diffEdge = world_edges[i].second.x - world_edges[i].first.x;
-                double yEdge = world_edges[i].first.y + (world_edges[i].second.y - world_edges[i].first.y)*(diffX/diffEdge);
+                double diffX = v.x - world_edges_D[i].first.x;
+                double diffEdge = world_edges_D[i].second.x - world_edges_D[i].first.x;
+                double yEdge = world_edges_D[i].first.y + (world_edges_D[i].second.y - world_edges_D[i].first.y)*(diffX/diffEdge);
                 if(v.y > yEdge)
                 {
                     v.isColliding = true;
@@ -199,7 +200,23 @@ public abstract class JellyShape extends Actor {
                 }
             }
         }
-            for(int i = 0; i < plate_edges.length; i++)
+        for(int i = 0; i < world_edges_U.length; i++)
+        {
+            if( v.x > world_edges_U[i].first.x && v.x < world_edges_U[i].second.x)
+            {
+                double diffX = v.x - world_edges_U[i].first.x;
+                double diffEdge = world_edges_U[i].second.x - world_edges_U[i].first.x;
+                double yEdge = world_edges_U[i].first.y + (world_edges_U[i].second.y - world_edges_U[i].first.y)*(diffX/diffEdge);
+                if(v.y < yEdge)
+                {
+                    v.isColliding = true;
+                    v.y = yEdge;
+                    v.stop();
+                }
+            }
+        }
+        
+        for(int i = 0; i < plate_edges.length; i++)
         {
             if( v.x > plate_edges[i].first.x && v.x < plate_edges[i].second.x)
             {
@@ -214,74 +231,7 @@ public abstract class JellyShape extends Actor {
                     ((LevelArea) getWorld()).pSwitch.activate();
                 }
             }
-        }
-        }
-        if(lvl == 2){
-        for(int i = 0; i < world_edges2.length; i++)
-        {
-            if( v.x > world_edges2[i].first.x && v.x < world_edges2[i].second.x)
-            {
-                double diffX = v.x - world_edges2[i].first.x;
-                double diffEdge = world_edges2[i].second.x - world_edges2[i].first.x;
-                double yEdge = world_edges2[i].first.y + (world_edges2[i].second.y - world_edges2[i].first.y)*(diffX/diffEdge);
-                if(v.y > yEdge)
-                {
-                    v.isColliding = true;
-                    v.y = yEdge;
-                    v.stop();
-                }
-            }
-        }
-            for(int i = 0; i < plate_edges.length; i++)
-        {
-            if( v.x > plate_edges[i].first.x && v.x < plate_edges[i].second.x)
-            {
-                double diffX = v.x - plate_edges[i].first.x;
-                double diffEdge = plate_edges[i].second.x - plate_edges[i].first.x;
-                double yEdge = plate_edges[i].first.y + (plate_edges[i].second.y - plate_edges[i].first.y)*(diffX/diffEdge);
-                if(v.y > yEdge)
-                {
-                    /*v.isColliding = true;
-                    v.y = yEdge;
-                    v.stop();*/
-                    ((LevelArea) getWorld()).pSwitch.activate();
-                }
-            }
-        }
         }        
-        if(lvl == 3){
-        for(int i = 0; i < world_edges3.length; i++)
-        {
-            if( v.x > world_edges3[i].first.x && v.x < world_edges3[i].second.x)
-            {
-                double diffX = v.x - world_edges3[i].first.x;
-                double diffEdge = world_edges3[i].second.x - world_edges3[i].first.x;
-                double yEdge = world_edges3[i].first.y + (world_edges3[i].second.y - world_edges3[i].first.y)*(diffX/diffEdge);
-                if(v.y > yEdge)
-                {
-                    v.isColliding = true;
-                    v.y = yEdge;
-                    v.stop();
-                }
-            }
-        }
-            for(int i = 0; i < plate_edges.length; i++)
-        {
-            if( v.x > plate_edges[i].first.x && v.x < plate_edges[i].second.x)
-            {
-                double diffX = v.x - plate_edges[i].first.x;
-                double diffEdge = plate_edges[i].second.x - plate_edges[i].first.x;
-                double yEdge = plate_edges[i].first.y + (plate_edges[i].second.y - plate_edges[i].first.y)*(diffX/diffEdge);
-                if(v.y > yEdge)
-                {
-                    /*v.isColliding = true;
-                    v.y = yEdge;
-                    v.stop();*/
-                    ((LevelArea) getWorld()).pSwitch.activate();
-                }
-            }
-        }
-        }          
     }
     
     /**d

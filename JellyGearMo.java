@@ -18,12 +18,21 @@ public class JellyGearMo extends JellyShape
     {
         bl = new Vertex(-30, 0);
         br = new Vertex(30,0);
-        //Vertex tl = new Vertex(-30, -50);
-        //Vertex tr = new Vertex(30, -50);
+        Vertex ml1 = new Vertex(-45, -40);
+        Vertex ml2 = new Vertex(-45, -70);
+        Vertex mr1 = new Vertex(45, -40);
+        Vertex mr2 = new Vertex(45, -70);
+        Vertex top = new Vertex(0, -90);
         
-        vertices = new Vertex[] {bl, br};//, tl, tr};
-        edges = new Edge[] {new Edge(bl, br)};/*, new Edge(tl, tr), new Edge(bl, tl), new Edge(br, tr)
-        , new Edge(bl, tr), new Edge(br, tl)};*/
+        vertices = new Vertex[] {bl, br, ml1, ml2, mr1, mr2, top};
+        edges = new Edge[vertices.length * vertices.length];
+        for(int i = 0; i < vertices.length; i++)
+        {
+            for(int j = 0; j < vertices.length; j++)
+            {
+                edges[i*vertices.length + j] = new Edge(vertices[i], vertices[j]);
+            }
+        }
     }
     
     public void act()
@@ -42,6 +51,8 @@ public class JellyGearMo extends JellyShape
         ((LevelArea) getWorld()).gearmo.setRotation((int)(angle * (180/3.14)));
         
     }
-        
-        
+    
+     public void updateImage() {
+         return;
+    }      
 }
