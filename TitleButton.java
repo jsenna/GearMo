@@ -47,11 +47,7 @@ public class TitleButton extends Button
         }
         
         if(Greenfoot.mouseClicked(this)){
-            getWorld().removeObjects(getWorld().getObjects(Mplus.class));
-            getWorld().removeObjects(getWorld().getObjects(Mminus.class));
-            getWorld().removeObjects(getWorld().getObjects(Options.class));
-            getWorld().stopped();
-            Greenfoot.setWorld(new TheWorld(((TitleScreen) getWorld()).music.getVolume()));
+          getWorld().addObject(new Story1(),400,300);
            
         }
     }    

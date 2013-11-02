@@ -29,11 +29,11 @@ public class WinScreen extends World
     {
         WinBox winbox = new WinBox();
         addObject(winbox, 326, 203);
-        winbox.setLocation(300, 200);
+        winbox.setLocation(400, 300);
 
         gearmo gearmo = new gearmo();
         addObject(gearmo, 279, 286);
-        gearmo.setLocation(296, 287);
+        gearmo.setLocation(400, 300);
     }
  public void reset() 
    {

@@ -12,8 +12,8 @@ public class Level3World extends LevelArea
     /**
      * Constructor for objects of class Level3World.
      * 
-     */
-    int vol;
+     */   
+    int vol;  
     public Level3World(int v)
     {
         music = new GreenfootSound("Rolemusic_-_02_-_ayVentura.mp3");

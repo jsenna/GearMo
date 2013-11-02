@@ -9,8 +9,9 @@ public class TheWorld extends LevelArea {
        
         prepareInterface();
         lvl = 1;
-        prepare();
         vol = v;
+        prepare();
+        
         music.setVolume(vol);
         world_edges_U_Absoulte = new Edge[0];
         world_edges_D_Absoulte = new Edge[0];

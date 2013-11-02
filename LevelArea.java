@@ -57,7 +57,7 @@ public class LevelArea extends World
         public void act(){
        if(soundPlay == 0){
            soundPlay = 1;
-           music.play();
+           music.playLoop();
         }
     }
       public void reset() 
