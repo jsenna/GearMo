@@ -51,7 +51,7 @@ public class TitleButton extends Button
             getWorld().removeObjects(getWorld().getObjects(Mminus.class));
             getWorld().removeObjects(getWorld().getObjects(Options.class));
             getWorld().stopped();
-            Greenfoot.setWorld(new TheWorld());
+            Greenfoot.setWorld(new TheWorld(((TitleScreen) getWorld()).music.getVolume()));
            
         }
     }    

@@ -1,14 +1,17 @@
 import greenfoot.*;
 import java.awt.Color;
+
 public class TheWorld extends LevelArea {
-    
-    public TheWorld() {
+     
+    int vol;
+    public TheWorld(int v) {
         
        
         prepareInterface();
         lvl = 1;
         prepare();
-        
+        vol = v;
+        music.setVolume(vol);
         world_edges_U_Absoulte = new Edge[0];
         world_edges_D_Absoulte = new Edge[0];
         
@@ -44,7 +47,7 @@ public class TheWorld extends LevelArea {
         addObject(trirobot, 338, 80);
         trirobot.setLocation(339, 77);
         trirobot.setLocation(362, 77);
-        nWorld = new Level2World();
+        nWorld = new Level2World(vol);
     }
     public void act(){
        if(soundPlay == 0){

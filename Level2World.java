@@ -8,15 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level2World extends LevelArea
 {
-    TriRobot trirobot;
+    TriRobot trirobot; 
     /**
      * Constructor for objects of class Level2World.
      * 
      */
-    public Level2World()
+    int vol;
+    public Level2World(int v)
     {      
         music = new GreenfootSound("Rolemusic_-_01_-_A_ninja_among_culturachippers.mp3");
-        music.setVolume(50);
+        vol = v;
+        music.setVolume(v);
      setBackground("7845.png");   
      prepareInterface();
      lvl = 2;
@@ -49,7 +51,7 @@ public class Level2World extends LevelArea
         addObject(trirobot, 400, 240);
 
         
-        nWorld = new Level3World();
+        nWorld = new Level3World(vol);
     }
       public void Gearmoposition()
   {

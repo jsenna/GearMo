@@ -13,7 +13,7 @@ public class Options extends Button
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
         boolean toggle=true;
-        
+      
         public Options()
         {
             setImage("Options.png");

@@ -8,15 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level3World extends LevelArea
 {
- 
+  
     /**
      * Constructor for objects of class Level3World.
      * 
      */
-    public Level3World()
+    int vol;
+    public Level3World(int v)
     {
         music = new GreenfootSound("Rolemusic_-_02_-_ayVentura.mp3");
-        music.setVolume(50);
+        vol = v;
+        music.setVolume(vol);
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         setBackground("658_max.png");
        prepareInterface();
