@@ -14,7 +14,9 @@ public class Vertex {
     public double springXVel = 0;
     public double springYVel = 0;
     
-    boolean isColliding = false;
+    boolean isCollidingWall = false;
+    boolean isCollidingD = false;
+    boolean isCollidingU = false;
     
     Vertex(double x, double y) {
         this.x = x;
