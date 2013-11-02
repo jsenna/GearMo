@@ -17,6 +17,7 @@ public class Level2World extends LevelArea
     {    
         
      prepareInterface();
+     lvl = 2;
      prepare();
      setPaintOrder(gearmo.class, Start.class, reset.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
      

@@ -17,6 +17,7 @@ public class Level3World extends LevelArea
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
        prepareInterface();
+       lvl = 3;
        prepare();
         setPaintOrder(gearmo.class, Start.class, reset.class, CCBall.class, CBall.class, edgeicon.class, JellyObject.class, JellyShape.class);
     }

@@ -12,25 +12,33 @@ public class PressureSwitch extends Switchable
      * Act - do whatever the PressureSwitch wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
-    {
-        // Add your action code here.
-    }
-    public void activate(){
+    public void act(){
         //Greenfoot.playSound("click.mp3");
-        if(on == 0){
-       
       
-       
-       
-       if(((LevelArea)getWorld()).gearmo.getX() >= 450 ){
+        if(((LevelArea)getWorld()).lvl == 3 && ((LevelArea)getWorld()).gearmo.getX() <= this.getX() && ((LevelArea)getWorld()).gearmo.getY() <= this.getY()  ){
+           setImage("switchOn.png");
+           
+        ((LevelArea)getWorld()).nextWorld();
+       //Greenfoot.setWorld(new WinScreen());
+       }      
+        
+        
+       if(((LevelArea)getWorld()).lvl == 2 && ((LevelArea)getWorld()).gearmo.getX() <= this.getX() && ((LevelArea)getWorld()).gearmo.getY() >= this.getY()  ){
            setImage("switchOn.png");
            
         ((LevelArea)getWorld()).nextWorld();
        //Greenfoot.setWorld(new WinScreen());
        }
        
-    }
+       
+       if(((LevelArea)getWorld()).lvl == 1 && ((LevelArea)getWorld()).gearmo.getX() >= this.getX() ){
+           setImage("switchOn.png");
+           
+        ((LevelArea)getWorld()).nextWorld();
+       //Greenfoot.setWorld(new WinScreen());
+       }
+       
+    
 }
     
 }
